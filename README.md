@@ -1,12 +1,6 @@
 # ECDBpersonal
 
-**** No Longer Supported ****
-
-NOTE: While this works, it is outdated and the original source this was forked from became integrated into an official product.
-
-This is a personal version of ECDB by Pete Willard
-
-A personal edition of the ECDB tool which I have running on a local Raspberry Pi with an attached  WD PiDrive.  The changes to the original code are related to updating the SQL code to cope with the later versions of MYSQL that deprecated many functions.  The user interface changes are related to it being a personal edition and making use of FontAwesome and Jquery components.
+NOTE: This is a fork of ECDBpersonal from Pete Willard. I forked it just because I found it useful. I will be making some changes to it, but it is only for my own use. As such it is **** Not Supported ****
 
 This version also allows for uploading of PDF datasheets, PDF Application Notes and Parts Images.  These are all stored as files and not *in* the database.  To make working with files that reside in folders, jquery autocomplete has been employed to locate files even when only part of the name is entered, though it remains case sensitive.
 
@@ -36,14 +30,11 @@ Currently there is no detailed documentation available.
 
 ### Requirements
 
-- Apache2.4.10 or newer Web Server
-- PHP Version 5.6.3 or newer
-- Updated for use with MySQL Version 5.5.57 or newer
-
-
-This is also known to work wit MariaDB and PHP7 with minor changes.
-
-Including:  Using a version of PHPMYADMIN that supports PHP7  (version 5+)
+- I use it with:
+- Debian Trixie
+- Apache/2.4.68 (Debian)
+- PHP Version 8.4.24
+- MariaDB 11.8.6
 
 Also, verify permissions and ownership on the /var/www/html directories.
 
@@ -71,8 +62,6 @@ You can also add an FTP user the same way replacing `$USER` with an actual accou
 This is free and unencumbered software released into the public domain.  
 
 Note that the original author released as Creative Commons but placed restrictions on public use. This is a release intended for non-public use.
-
-
 
 ## Original License
 
