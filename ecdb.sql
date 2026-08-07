@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecdb`
 --
-CREATE DATABASE IF NOT EXISTS `ecdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `ecdb` DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci;
 USE `ecdb`;
 
 -- --------------------------------------------------------
@@ -248,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `name` varchar(64) NOT NULL,
   `manufacturer` varchar(64) NOT NULL,
   `package` varchar(64) NOT NULL,
-  `pins` varchar(11) NOT NULL,
+  `pins` varchar(11) NOT NULL DEFAULT '0',
   `smd` varchar(3) NOT NULL DEFAULT 'No',
   `quantity` varchar(11) NOT NULL,
   `order_quantity` varchar(11) NOT NULL,
