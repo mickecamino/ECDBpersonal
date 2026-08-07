@@ -388,7 +388,7 @@ table.globalTables tbody tr:hover td.edit a {
 }
 
 div#header {
-    width: 900px;
+    width: 1024px;
     margin: 0 auto 15px auto;
     height: 75px;
     position: relative;
@@ -737,7 +737,7 @@ h2 {
 
 div#wrapper {
     padding: 10px;
-    width: 900px;
+    width: 1024px;
     margin: auto;
 }
 
@@ -752,13 +752,13 @@ div#content {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-bottom: 2px solid #ccc;
-    width: 870px;
+    width: 1024px;
     margin: 0 auto 0 auto;
     padding: 15px 15px 35px 15px;
 }
 
 div#copyText {
-    width: 880px;
+    width: 1024px;
     font-size: 16px;
     margin: 10px auto 30px auto;
     padding: 0 10px 0 10px;
@@ -959,7 +959,7 @@ div.loginWrapper {
 
 div.loginWrapper div.left {
     float: left;
-    width: 620px;
+    width: 820px;
     font-size: 18px;
 }
 
