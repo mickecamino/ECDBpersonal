@@ -18,7 +18,7 @@ class ProjAdd {
 				$sql="INSERT into projects (project_owner, project_name) VALUES ('$owner', '$name')";
 				$sql_exec = mysqli_query($connection,$sql);
 				
-				$proj_id = mysqli_insert_id(mysqli_insert_id);
+				$proj_id = mysqli_insert_id($connection);
 				
 				echo '<div class="message green center">';
 				echo 'Project added!';

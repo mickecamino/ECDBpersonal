@@ -1,6 +1,6 @@
 <?php
 	require_once('include/login/auth.php');
-	include('include/mysqli_connect.php');
+	include('include/mysql_connect.php');
 	require_once('include/debug.php');
 	
 	$owner 	= 	$_SESSION['SESS_MEMBER_ID'];
