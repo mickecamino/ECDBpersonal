@@ -272,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `category` varchar(11) NOT NULL,
   `cimage` varchar(256) NOT NULL,
   `appnote` varchar(256) NOT NULL,
-  `price` varchar(11) NOT NULL
+  `price` varchar(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=702 DEFAULT CHARSET=utf8;
 
 
