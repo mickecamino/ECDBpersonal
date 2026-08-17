@@ -2,11 +2,11 @@
 This is a list of changes made to my version of ECDBpersonal.
 
 ## 
-Fixed some bugs in the code.
-Changed the database collation to utf8mb3_swedish_ci.
-Removed some dead code.
-Changed css to display a wider area.
-Fixed some things in the database.
+* Fixed some bugs in the code.
+* Changed the database collation to utf8mb3_swedish_ci.
+* Removed some dead code.
+* Changed css to display a wider area.
+* Fixed some things in the database.
 
 ## [Unreleased]
 * Removed all instances of the SMD checkbox. There is no need to use it as the Package should contain the proper package type. Removed smd from the database.
