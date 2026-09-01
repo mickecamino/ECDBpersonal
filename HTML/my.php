@@ -96,7 +96,7 @@
                 echo '</select></td>'; // end fourth column
                 echo '</tr></tbody></table>';
             echo '<div class="buttons"><div class="input">';
-            echo '<button class="button green" name="submit" type="submit"><span class="fa fa-save fa-lg"></span>' . _("Save") . '</button>';
+            echo '<button class="button green" name="submit" type="submit"><span class="fa fa-save fa-lg"></span> ' . _("Save") . '</button>';
             echo '</div></div></form></div>';
 // END
 // Text outside the main content
