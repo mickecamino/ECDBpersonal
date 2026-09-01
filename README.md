@@ -1,12 +1,14 @@
 # ECDBpersonal
 
-NOTE: This is a fork of ECDBpersonal from Pete Willard. I forked it just because I found it useful. I will be making some changes to it, but it is only for my own use. As such it is **** Not Supported ****
+NOTE: This is a fork of ECDBpersonal from Pete Willard.  
+I forked it just because I found it useful. I will be making some major changes to it, but it is only for my own use. As such it is **** Not Supported ****
 
 This version also allows for uploading of PDF datasheets, PDF Application Notes and Parts Images.  These are all stored as files and not *in* the database.  To make working with files that reside in folders, jquery autocomplete has been employed to locate files even when only part of the name is entered, though it remains case sensitive.
 
 ## Documentation
 
-Currently there is no detailed documentation available. 
+Currently there is no detailed documentation available.  
+However, I will publish a guide on how to set up ecDBpersonal om Debian Trixie.
 
 ## Installation
 
