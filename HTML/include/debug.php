@@ -1,8 +1,11 @@
 <?php
-
-
-// This sets PHP errors on or off.
-
+// File: add_based.php
+// Function: This sets PHP errors on or off.
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
 $debug = 1; // 1 = debug
 
 if ($debug == 1){

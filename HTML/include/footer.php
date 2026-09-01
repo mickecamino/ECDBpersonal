@@ -1,23 +1,20 @@
-<!-- FILE: FOOTER.PHP - CSS from STYLES.CSS -->
-
-<div id="copyText">
-    <div class="leftBox">
-        <div>© 2010 - <?php echo date('Y'); ?> ecDB - Created by Nils Fredriksson revised by Pete Willard and modified by Mikael Karlsson</div>
 <?php
-    if(isset($owner)) {
-        echo '<div class="stats">';
-        $components = mysqli_num_rows(mysqli_query($connection,"SELECT id FROM data"));
-        echo $components;
-        echo '<span class="boldText"> components </span>and ';
-        $projects = mysqli_num_rows(mysqli_query($connection,"SELECT project_id FROM projects"));
-        echo $projects;
-        if($projects < 2 ) {
-            echo '<span class="boldText"> project</span>.';
-        } else {
-            echo '<span class="boldText"> projects</span>.';
-        }
-        echo '</div>';
+// File: footer.php
+// Function: Show footer with copyright
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
+    if(isset($_COOKIE["language"])) { // for localization
+    $language = $_COOKIE["language"];
     }
+    else { // Not set, set to en_US.utf8
+        $language = "en_US.utf8";
+    }
+	SetLanguage($language);
+echo '<div id="copyText">';
+echo '<div class="leftBox">';
+echo '<div>© 2010 - ' . date('Y') . _(" ecDB - Created by Nils Fredriksson. ecDBpersonal created by Pete Willard, modified by Mikael Karlsson") . '</div>';
+echo '</div></div>';
 ?>
-    </div>
-</div>

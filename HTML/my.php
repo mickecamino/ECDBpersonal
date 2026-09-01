@@ -1,173 +1,106 @@
 <?php
-	require_once('include/login/auth.php');
-	require_once('include/debug.php');
-	include('include/mysql_connect.php');
+// File: my.php
+// Function: Personal setting for a user
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license: 
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+// 
+    require_once "include/login/auth.php";
+    require_once "include/debug.php";
+    include "include/mysql_connect.php";
 
-	$owner 	= 	$_SESSION['SESS_MEMBER_ID'];
+    $owner  =   $_SESSION['SESS_MEMBER_ID'];
 
-	$GetDataComponent = mysqli_query($connection,"SELECT * FROM members WHERE member_id = ".$owner."");
-	$executesql = mysqli_fetch_assoc($GetDataComponent);
+    $GetDataComponent = mysqli_query($connection,"SELECT * FROM members WHERE member_id = ".$owner."");
+    $executesql = mysqli_fetch_assoc($GetDataComponent);
+// Set or update the language cookie
+    setcookie("language", $executesql['language'], time() + (86400 * 30), "/"); // 86400 * 30 = 30 days
 
-?>
-
-<?php 
  // Custom Page Titles
- $pageTitle = 'Profile - ecDB';
- include("include/head.php")  
- ?>
-
-
-
-	<body>
-		<div id="wrapper">
-			
-			<!-- Header -->
-				<?php include 'include/header.php'; ?>
-			<!-- END -->
-			
-			<!-- Main menu -->
-				<?php include 'include/menu.php'; ?>
-			<!-- END -->
-			
-			<!-- Main content -->
-			<div id="content">
-				<h1>Settings</h1>
-
-				<?php
-					include('include/include_my_settings.php');
-					$Settings = new My;
-					$Settings->Settings();
-				?>
-
-				<form class="globalForms noPadding" action="" method="post">
-					<table class="globalTables leftAlign noHover" cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td class="boldText">
-									First Name
-								</td>
-								<td>
-									<input name="firstname" type="text" class="medium" value="<?php if(isset($_POST['submit'])) { echo $_POST['firstname']; } else { echo $executesql['firstname']; } ?>" />
-								</td>
-								<td class="boldText">
-									Last Name
-								</td>
-								<td>
-									<input name="lastname" type="text" class="medium" value="<?php if(isset($_POST['submit'])) { echo $_POST['lastname']; } else { echo $executesql['lastname']; } ?>" />
-								</td>
-							</tr>
-							<tr>
-								<td class="boldText">
-									Email
-								</td>
-								<td>
-									<input name="mail" class="medium" type="text" value="<?php if(isset($_POST['submit'])) { echo $_POST['mail']; } else { echo $executesql['mail']; } ?>" />
-								</td>
-							</tr>
-							<tr>
-								<td class="boldText">
-									Password
-								</td>
-								<td>
-									<input name="oldpass" class="medium" type="password" value="" />
-								</td>
-								<td class="boldText">
-									New password
-								</td>
-								<td>
-									<input name="newpass" class="medium" type="password" value="" onpaste="return false;" />
-								</td>
-							</tr>
-							<tr>
-								<td class="boldText">
-									Measurement System
-								</td>
-								<td>
-									<?php
-										if(!isset($_POST['submit']) && $executesql['measurement'] == 1) {
-											echo '<input type="radio" name="measurement" value="1" checked="checked" /> Metric ';
-											echo '<input type="radio" name="measurement" value="0" /> Imperial';
-										}
-										if(!isset($_POST['submit']) && $executesql['measurement'] == 0) {
-											echo '<input type="radio" name="measurement" value="1" /> Metric ';
-											echo '<input type="radio" name="measurement" value="0" checked="checked" /> Imperial';
-										}
-										if(isset($_POST['submit']) && $_POST['measurement'] == 1) {
-											echo '<input type="radio" name="measurement" value="1" checked="checked" /> Metric ';
-											echo '<input type="radio" name="measurement" value="0" /> Imperial';
-										}
-										if(isset($_POST['submit']) && $_POST['measurement'] == 0) {
-											echo '<input type="radio" name="measurement" value="1" /> Metric ';
-											echo '<input type="radio" name="measurement" value="0" checked="checked" /> Imperial';
-										}
-									?>
-								</td>
-							</tr>
-							<tr>
-								<td class="boldText">
-									Currency
-								</td>
-								<td>
-									<select name="currency">
-										<option value="SEK" 
-										<?php
-											if(!isset($_POST['submit']) && $executesql['currency'] == 'SEK') {
-												echo 'selected';
-											}
-											if(isset($_POST['submit']) && $_POST['currency'] == 'SEK') {
-												echo 'selected';
-											}
-										?>
-										>SEK</option>
-										
-										<option value="USD" 
-										<?php
-											if(!isset($_POST['submit']) && $executesql['currency'] == 'USD') {
-												echo 'selected';
-											}
-											if(isset($_POST['submit']) && $_POST['currency'] == 'USD') {
-												echo 'selected';
-											}
-										?>
-										>USD</option>
-										
-										<option value="EUR" 
-										<?php
-											if(!isset($_POST['submit']) && $executesql['currency'] == 'EUR') {
-												echo 'selected';
-											}
-											if(isset($_POST['submit']) && $_POST['currency'] == 'EUR') {
-												echo 'selected';
-											}
-										?>
-										>EUR</option>	
-
-										<option value="GBP" 
-										<?php
-											if(!isset($_POST['submit']) && $executesql['currency'] == 'GBP') {
-												echo 'selected';
-											}
-											if(isset($_POST['submit']) && $_POST['currency'] == 'GBP') {
-												echo 'selected';
-											}
-										?>
-										>GBP</option>	
-									</select>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="buttons">
-						<div class="input">
-							<button class="button green" name="submit" type="submit"><span class="fa fa-save fa-lg"></span> Save</button>
-						</div>
-					</div>
-				</form>
-			</div>
-			<!-- END -->
-			<!-- Text outside the main content -->
-				<?php include 'include/footer.php'; ?>
-			<!-- END -->
-		</div>
-	</body>
-</html>
+ $pageTitle = _("Profile");
+ include "include/head.php";
+    echo '<body><div id="wrapper">';
+// Header
+    include "include/header.php";
+// END
+// Main menu
+    include "include/menu.php";
+// END
+// Main content
+// Call the language translato
+    require_once "include/localize.php";
+    if(isset($_COOKIE["language"])) { // for localization
+    $language = $_COOKIE["language"];
+    }
+    else { // Not set, set to en_US.utf8
+        $language = "en_US.utf8";
+    }
+    SetLanguage($language);
+// END
+    echo '<div id="content">';
+    echo '<h1>' . _("Settings") . '</h1>';
+    include "include/include_my_settings.php";
+    $Settings = new My;
+    $Settings->Settings();
+        echo '<form class="globalForms noPadding" action="" method="post">';
+            echo '<table class="globalTables leftAlign noHover" cellpadding="0" cellspacing="0">';
+            echo '<tbody><tr>'; // start row one
+            echo '<td class="boldText">' . _("First Name") . '</td>'; // first column
+            echo '<td><input name="firstname" type="text" class="medium" value="'; // second column
+            if(isset($_POST['submit'])) { echo $_POST['firstname']; } else { echo $executesql['firstname']; };
+            echo '" /></td>'; // end second column
+            echo '<td class="boldText">' . _("Last Name") . '</td>'; // third column
+            echo '<td><input name="lastname" type="text" class="medium" value="'; // fourth column
+            if(isset($_POST['submit'])) { echo $_POST['lastname']; } else { echo $executesql['lastname']; };
+            echo '" /></td>'; // end fourth column
+            echo '</tr><tr>'; // end first row, start second row
+            echo '<td class="boldText">' . _("E-mail") . '</td>'; // first column
+            echo '<td><input name="mail" class="medium" type="text" value="'; // second columnt
+            if(isset($_POST['submit'])) { echo $_POST['mail']; } else { echo $executesql['mail']; };
+            echo '" /></td>'; // end second column
+            echo '<td></td><td></td>'; // third and fourth column
+            echo '</tr><tr>'; // end second row, start third row
+            echo '<td class="boldText">' . _("Password") . '</td>'; // first column
+            echo '<td><input name="oldpass" class="medium" type="password" value="" /></td>'; // second column
+            echo '<td class="boldText">' . _("New password") . '</td>'; // third column
+            echo '<td><input name="newpass" class="medium" type="password" value="" onpaste="return false;" /></td>'; // fourth column
+            echo '</tr><tr>'; // end second row, start third row
+            echo '<td class="boldText">' . _("Currency") . '</td>'; // first column
+            echo '<td><select name="currency"><option value="SEK"'; // start second column
+                if(!isset($_POST['submit']) && $executesql['currency'] == 'SEK') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['currency'] == 'SEK') { echo 'selected';}
+                echo '>SEK</option>';
+                echo '<option value="USD"';
+                if(!isset($_POST['submit']) && $executesql['currency'] == 'USD') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['currency'] == 'USD') { echo 'selected';}
+                echo '>USD</option>';
+                echo '<option value="EUR"';
+                if(!isset($_POST['submit']) && $executesql['currency'] == 'EUR') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['currency'] == 'EUR') { echo 'selected';}
+                echo '>EUR</option>';
+                echo '<option value="GBP"';
+                if(!isset($_POST['submit']) && $executesql['currency'] == 'GBP') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['currency'] == 'GBP') { echo 'selected';}
+                echo '>GBP</option>';
+            echo '</select></td>'; // end second column
+            echo '<td class="boldText">' . _("Language") . '</td>'; // third column
+                echo '<td><select name="language"><option value="sv_SE.utf8"'; // start fourth column
+                if(!isset($_POST['submit']) && $executesql['language'] == 'sv_SE.utf8') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['language'] == 'sv_SE.utf8') { echo 'selected';}
+                echo '>' . _("Swedish") . '</option>';
+                echo '<option value="en_US.utf8"';
+                if(!isset($_POST['submit']) && $executesql['language'] == 'en_US.utf8') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['language'] == 'en_US.utf8') { echo 'selected';}
+                echo '>' . _("English") . '</option>';
+                echo '</select></td>'; // end fourth column
+                echo '</tr></tbody></table>';
+            echo '<div class="buttons"><div class="input">';
+            echo '<button class="button green" name="submit" type="submit"><span class="fa fa-save fa-lg"></span>' . _("Save") . '</button>';
+            echo '</div></div></form></div>';
+// END
+// Text outside the main content
+    include "include/footer.php";
+// END
+    echo "</div></body></html>";
+?>

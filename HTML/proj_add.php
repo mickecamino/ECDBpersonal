@@ -1,12 +1,17 @@
 <?php
-	// Program: PROJ_ADD.PHP
-	//
+// File: proj_add.php
+// Function: Add project
+// Revision date: 2026-08-30
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
 	require_once('include/login/auth.php');
 	require_once('include/debug.php');
 ?>
 <?php 
  // Custom Page Titles
- $pageTitle = 'Add Project - ecDB';
+ $pageTitle = _("Add Project");
  include("include/head.php")  
  ?>
 	

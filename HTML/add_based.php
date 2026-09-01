@@ -1,10 +1,14 @@
 <?php
-// ADD_BASED.PHP
-// Add component based on existing component
+// File: add_based.php
+// Function: Add component based on existing component
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 //
-require_once('include/login/auth.php');
-include('include/mysql_connect.php');
-require_once('include/debug.php');
+require_once "include/login/auth.php";
+include "include/mysql_connect.php";
+require_once "include/debug.php";
 
 $owner = $_SESSION['SESS_MEMBER_ID'];
 $id    = (int) $_GET['based'];
@@ -13,8 +17,8 @@ $id    = (int) $_GET['based'];
 $GetDataComponent = mysqli_query($connection, "SELECT * FROM data WHERE id = " . $id . " AND owner = " . $owner . "");
 $executesql       = mysqli_fetch_assoc($GetDataComponent);
 
-// Get some personal data. ID, currency, measurement unit
-$GetPersonal = mysqli_query($connection, "SELECT currency, measurement FROM members WHERE member_id = " . $owner . "");
+// Get some personal data. ID, currency
+$GetPersonal = mysqli_query($connection, "SELECT currency FROM members WHERE member_id = " . $owner . "");
 $personal    = mysqli_fetch_assoc($GetPersonal);
 
 // If the owner of component !== $owner. Show error.
@@ -47,316 +51,140 @@ $executesql_sub_catname = mysqli_fetch_assoc($GetSubCatName);
 // Get ALL the sub categories.
 $GetDataComponentsAll = "SELECT * FROM category_sub";
 $sql_exec             = mysqli_Query($connection, $GetDataComponentsAll);
-?>
-<?php
 // Custom Page Titles
-$pageTitle = 'Add component - ecDB';
-include("include/head.php");
-?>
-	
-	<body>
-		<div id="wrapper">
-			
-			<!-- Header -->
-				<?php	include 'include/header.php';	?>
-			<!-- END -->
-			
-			<!-- Main menu -->
-				<?php	include 'include/menu.php';	?>
-			<!-- END -->
-			
-			<!-- Main content -->
-			<div id="content">
-				
-				<h1>Add new component based on <a href="component.php?view=<?php
-				echo $executesql['id'];
-				?>">
-				<?php
-				echo $executesql['name'];
-				?></a>
-				</h1>
-				
-				<?php
-				include('include/include.php');
-				$Add = new ShowComponents;
-				$Add->Add();
-				?>
-				
-				<form class="globalForms noPadding" action="" method="post">
-					<div class="textBoxInput">
-						<label class="keyWord boldText">Comment</label>
-						<div class="text">
-							<textarea name="comment" rows="4"><?php
-							echo $executesql['comment'];
-							?></textarea>
-						</div>
-					</div>
-					<table class="globalTables leftAlign noHover" cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td class="boldText">
-									Name
-								</td>
-								<td>
-									<input name="name" class="medium" type="text" value="<?php
-									echo $executesql['name'];
-									?>" id="name" />
-								</td>
-								<td class="boldText">
-									Category
-								</td>
-								<td>
-									<select name="category">
-										<?php
-//=======================================================================										
-$HeadCategoryNameQuery = "SELECT * FROM category_head ORDER by name ASC";
-$sql_exec_headcat      = mysqli_Query($connection, $HeadCategoryNameQuery);
+$pageTitle = _("Add component");
+include "include/head.php";
 
-while ($HeadCategory = mysqli_fetch_array($sql_exec_headcat))
-    {
-    
-    echo '<option class="main_category" value="';
-    echo $HeadCategory['id'];
-    echo '" disabled>';
-    echo $HeadCategory['name'];
-    echo '</option>';
-    
-    $subcatfrom = $HeadCategory['id'] * 100;
-    $subcatto   = $subcatfrom + 99;
-    
-    $SubCategoryNameQuery = "SELECT * FROM category_sub WHERE id BETWEEN " . $subcatfrom . " AND " . $subcatto . " ORDER by name ASC";
-    $sql_exec_subcat      = mysqli_Query($connection, $SubCategoryNameQuery);
-    
-    while ($SubCategory = mysqli_fetch_array($sql_exec_subcat))
+    echo '<body><div id="wrapper">';
+// Header
+    include "include/header.php";
+// END
+// Main menu
+    include "include/menu.php";
+// END
+// Main content
+// Call the language translator
+    if(isset($_COOKIE["language"])) { // for localization
+    $language = $_COOKIE["language"];
+    }
+    else { // Not set, set to en_US.utf8
+        $language = "en_US.utf8";
+    }
+    require_once "include/localize.php";
+    SetLanguage($language);
+// END
+    echo '<div id="content"><h1>' . _("Add new component based on ") . '<a href="component.php?view=';
+    echo $executesql['id'] . '">';
+    echo $executesql['name'] . '</a></h1>';
+    include "include/include.php";
+    $Add = new ShowComponents;
+    $Add->Add();
+
+    echo '<form class="globalForms noPadding" action="" method="post"><div class="textBoxInput"><label class="keyWord boldText">' . _("Comment") . '</label>';
+    echo '<div class="text"><textarea name="comment" rows="4">' . $executesql['comment'] . '</textarea></div></div>';
+    echo '<table class="globalTables leftAlign noHover" cellpadding="0" cellspacing="0"><tbody>'; // start table
+    echo '<tr><td class="boldText">' . _("Name") . '</td>'; // First row, first column
+    echo '<td><input name="name" class="medium" type="text" value="' . $executesql['name'] . '" id="name" /></td>'; // second column
+    echo '<td class="boldText">' . _("Category") . '</td>'; // third column
+    echo '<td><select name="category">'; // start fourth column
+//=======================================================================
+    $HeadCategoryNameQuery = "SELECT * FROM category_head ORDER by name ASC";
+    $sql_exec_headcat      = mysqli_Query($connection, $HeadCategoryNameQuery);
+
+    while ($HeadCategory = mysqli_fetch_array($sql_exec_headcat))
         {
-        echo '<option value="';
-        echo $SubCategory['id'];
-        echo '"';
-        if ($executesql_sub_catname['id'] == $SubCategory['id'])
-            {
-            echo ' selected';
-            } //$executesql_sub_catname['id'] == $SubCategory['id']
-        echo '>';
-        echo $SubCategory['name'];
+        echo '<option class="main_category" value="';
+        echo $HeadCategory['id'];
+        echo '" disabled>';
+        echo $HeadCategory['name'];
         echo '</option>';
-        } //$SubCategory = mysqli_fetch_array($sql_exec_subcat)
-    } //$HeadCategory = mysqli_fetch_array($sql_exec_headcat)
-?>
-									</select>
-								</td>
-								<td class="boldText">
-									Quantity
-								</td>
-								<td>
-									<input name="quantity" type="text" class="small" value="<?php
-									echo $executesql['quantity'];
-									?>" id="quantity" />
-								</td>
-							</tr>
-							<tr>
-								<td class="boldText">
-									Manufacturer
-								</td>
-								<td>
-									<div class="ui-widget">
-									<input id="manufacturer" name="manufacturer"  type="text" value="<?php
-									echo $executesql['manufacturer'];
-									?>" />
-									</div>
-								</td>
-								<td class="boldText">
-									Package
-								</td>
-								<td>
-									<div class="ui-widget">
-									<input id="package" name="package"  type="text" value="<?php
-									echo $executesql['package'];
-									?>" />
-									</div>
-								</td>
-								<td class="boldText">
-									Pins
-								</td>
-								<td>
-									<input name="pins" type="text" class="small" value="<?php
-									echo $executesql['pins'];
-									?>" />
-								</td>
-							</tr>
-							<tr>
-								<td class="boldText">
-									Location
-								</td>
-								<td>
-									<div class="ui-widget">
-									<input id="location" name="location" type="text"  value="<?php
-									echo $executesql['location'];
-									?>" id="location" />
-									</div>
-								</td>
-								<td class="boldText">
-									Price
-								</td>
-								<td>
-									<input name="price" type="text" class="small" value="<?php
-									echo $executesql['price'];
-									?>" id="price" /> <?php
-									echo $personal['currency'];
-									?>
-								</td>
-								<td class="boldText">
-									To order
-								</td>
-								<td>
-									<input name="orderquant" type="text" class="small" value="<?php
-									echo $executesql['order_quantity'];
-									?>" id="orderquant" />
-								</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td class="boldText">
-									SMD
-								</td>
-								<td>
-									<?php
-if ($executesql['smd'] == 'Yes')
-    {
-    echo '<input type="radio" name="smd" value="Yes" checked="checked" /> Yes ';
-    echo '<input type="radio" name="smd" value="No" /> No';
-    } //$executesql['smd'] == 'Yes'
-else
-    {
-    echo '<input type="radio" name="smd" value="Yes" /> Yes ';
-    echo '<input type="radio" name="smd" value="No" checked="checked" /> No';
-    }
-?>
-								</td>
-								<td class="boldText">
-									Recycled
-								</td>
-								<td>
-									<?php
-if ($executesql['scrap'] == 'Yes')
-    {
-    echo '<input type="radio" name="scrap" value="Yes" checked="checked" /> Yes ';
-    echo '<input type="radio" name="scrap" value="No" /> No';
+
+        $subcatfrom = $HeadCategory['id'] * 100;
+        $subcatto   = $subcatfrom + 99;
+
+        $SubCategoryNameQuery = "SELECT * FROM category_sub WHERE id BETWEEN " . $subcatfrom . " AND " . $subcatto . " ORDER by name ASC";
+        $sql_exec_subcat      = mysqli_Query($connection, $SubCategoryNameQuery);
+
+        while ($SubCategory = mysqli_fetch_array($sql_exec_subcat))
+            {
+            echo '<option value="';
+            echo $SubCategory['id'];
+            echo '"';
+            if ($executesql_sub_catname['id'] == $SubCategory['id'])
+                {
+                echo ' selected';
+                } // end if - $executesql_sub_catname['id'] == $SubCategory['id']
+            echo '>';
+            echo $SubCategory['name'];
+            echo '</option>';
+        } // end while - $SubCategory = mysqli_fetch_array($sql_exec_subcat)
+    } // end while - $HeadCategory = mysqli_fetch_array($sql_exec_headcat)
+
+    echo '</select></td>'; // end select, end fourth column
+    echo '<td class="boldText">' . _("Quantity") . '</td>'; // fifth column
+    echo '<td><input name="quantity" type="text" class="small" value="' . $executesql['quantity'] . '" id="quantity" /></td></tr>'; // sixth column, end first row
+    echo '<tr><td class="boldText">' . _("Manufacturer") . '</td>'; // second row, first column
+    echo '<td><div class="ui-widget"><input id="manufacturer" name="manufacturer"  type="text" value="' . $executesql['manufacturer'] . '" /></div></td>'; // second column
+    echo '<td class="boldText">' . _("Package") . '</td>'; // third column
+    echo '<td><div class="ui-widget"><input id="package" name="package"  type="text" value="' . $executesql['package'] . '" /></div></td>'; // fourth column
+    echo '<td class="boldText">' . _("Pins") . '</td>'; // fifth column
+    echo '<td><input name="pins" type="text" class="small" value="' . $executesql['pins'] . '" /></td></tr>'; // sixth column, end second row
+    echo '<tr><td class="boldText">' . _("Location") . '</td>'; // third row, first column
+    echo '<td><div class="ui-widget"><input id="location" name="location" type="text"  value="' . $executesql['location'] . '" /></div></td>'; // second column
+    echo '<td class="boldText">' . _("Price") . '</td>'; // third column
+    echo '<td><input name="price" type="text" class="small" value="' . $executesql['price'] . '" id="price" /> ' . $personal['currency'] . '</td>'; // fourth column
+    echo '<td class="boldText">' . _("To order") . '</td>'; // fifth column
+    echo '<td><input name="orderquant" type="text" class="small" value="' . $executesql['order_quantity'] . '" id="orderquant" /></td></tr>'; // sixth column, end third row
+    echo '<tr><td class="boldText">' . _("Recycled") . '</td>'; // start fourth row, first column
+    echo '<td>'; // start second column
+    if ($executesql['scrap'] == 'Yes')
+        {
+        echo '<input type="radio" name="scrap" value="Yes" checked="checked" /> ' . _("Yes");
+        echo ' <input type="radio" name="scrap" value="No" /> ' . _("No");
     } //$executesql['scrap'] == 'Yes'
-else
-    {
-    echo '<input type="radio" name="scrap" value="Yes" /> Yes ';
-    echo '<input type="radio" name="scrap" value="No" checked="checked" /> No';
-    }
+    else
+        {
+        echo '<input type="radio" name="scrap" value="Yes" /> ' . _("Yes");
+        echo ' <input type="radio" name="scrap" value="No" checked="checked" /> ' . _("No");
+        }
+    echo '</td>'; // end second column
+    echo '<td></td><td></td><td></td><td></td></tr>'; // third, fourt, fifth and sixth column, end fourth row
+    echo '<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>'; // fifth row, first to sixth column
+    echo '<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>'; // sixth row, first to sixth column
+    echo '<tr><td class="boldText">' . _("Datasheet") . '</td>'; // start seventh row, first column
+    echo '<td><div class="ui-widget"><input id = "datasheet" name="datasheet" type="text"  value="' . $executesql['datasheet'] . '" /></div></td>'; // second column
+    echo '<td class="boldText">' . _("Image") . '</td>'; // third column
+    echo '<td><div class="ui-widget"><input id="images" name="cimage" type="text" class="medium" value="' . $executesql['cimage'] . '" /></div></td>'; // fourth column
+    echo '<td></td><td></td></tr>'; // fifth and sixth column, end seventh row
+    echo '<tr><td class="boldText">' . _("Application Note") . '</td>'; // start eight row, first column
+    echo '<td><div class="ui-widget"><input id = "appnote" name="appnote" type="text"  value="' . $executesql['appnote'] . '" /></div></td>'; // second column
+    echo '<td></td><td></td><td></td><td></td></tr>'; // third to sixth column, end eight row
+    echo '<tr><td></td>'; // start ninth row, first column
+    echo '<td class="boldText">' . _("Add component to project") . '</td>'; // second column
+    echo '<td class="boldText">' . _("Quantity") . '</td>'; // third column
+    echo '<td></td><td></td><td></td></tr>'; // fourth to sixth column, end row nine
+    echo '<tr><td></td>'; // start tenth row, first colum
+    echo '<td><select name="project">'; // start second column
+
+    include "include/include_component_add_project.php";
+    $MenuProj = new AddMenuProj;
+    $MenuProj->MenuProj();
+
+    echo '</select></td>'; // end second column
+    echo '<td><input name="projquant" type="text" class="small" value="'; // start third colum
+    if (isset($_POST['submit']))
+        {
+        echo $_POST['projquant'];
+        } //isset($_POST['submit'])
+    echo '" /></td>'; // end third column
+    echo '<td></td><td></td><td></td></tr>'; // fourth to sixth column, end tenth row
+    echo '</tbody></table>'; // end table
+    echo '<div class="buttons"><div class="input"><button class="button green" name="submit" type="submit"><span class="fa fa-save fa-lg"></span> ' . _("Save") . '</button>';
+    echo '</div></div></form></div>'; // end divs and form
+// END
+// Text outside the main content
+    include "include/footer.php";
+// END
+    echo "</div></body></html>";
 ?>
-								</td>
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							
 
-								<td class="boldText">
-									Data Sheet
-								</td>
-								<td>
-									<div class="ui-widget">
-									<input id = "datasheet" name="datasheet" type="text"  value="<?php echo $executesql['datasheet'];?>" />
-								</div>
-								</td>
-
-								<td class="boldText">
-									Image
-								</td>
-								<td>
-									<div class="ui-widget">
-									<input id="images" name="cimage" type="text" class="medium" value="<?php echo $executesql['cimage']; ?>" />
-									</div>
-								</td>
-								<td></td>
-								<td></td>
-
-							</tr>
-							<tr>
-								<td class="boldText">
-									Application Note
-								</td>
-								<td>
-									<div class="ui-widget">
-									 <input id = "appnote" name="appnote" type="text"  value="<?php echo $executesql['appnote']; ?>" />
-								    </div>
-								</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							</tr>
-							<tr>
-								<td></td>
-								<td  class="boldText">
-									Add component to project
-								</td>
-								<td  class="boldText">
-									Quantity
-								</td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>
-									<select name="project">
-										<?php
-include('include/include_component_add_project.php');
-$MenuProj = new AddMenuProj;
-$MenuProj->MenuProj();
-?>
-									</select>
-								</td>
-								<td>
-									<input name="projquant" type="text" class="small" value="<?php
-if (isset($_POST['submit']))
-    {
-    echo $_POST['projquant'];
-    } //isset($_POST['submit'])
-?>" />
-								</td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="buttons">
-						<div class="input">
-							<button class="button green" name="submit" type="submit"><span class="fa fa-save fa-lg"></span> Save</button>
-						</div>
-					</div>
-				</form>
-			</div>
-			<!-- END -->
-
-			<!-- Text outside the main content -->
-				<?php
-include 'include/footer.php';
-?>
-			<!-- END -->
-		</div>
-	</body>
-</html>

@@ -1,6 +1,13 @@
 <?php 
+// File: add_based.php
+// Function: Add component based on existing component
+// Revision date: 2026-08-30
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
  // Custom Page Titles
- $pageTitle = 'Register - ecDB';
+ $pageTitle = _("Register");
  include("include/head.php")  
  ?>
 	
@@ -28,7 +35,6 @@
 					<li><a href="."><span class="fa fa-key fa-lg"></span> Login</a></li>
 					<li><a href="register.php"><span class="fa user fa-lg"></span> Register</a></li>
 					<li><a href="about.php" class="selected"><span class="fa fa-document fa-lg"></span> About</a></li>
-					<li><a href="/blog"><span class="fa fa-bars fa-lg"></span> Blog</a></li>
 				</ul>
 			</div>
 			<!-- END -->

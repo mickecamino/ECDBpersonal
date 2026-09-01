@@ -1,178 +1,51 @@
 <?php
-	require_once('include/login/auth.php');
-	require_once('include/debug.php');
+// File: index.php
+// Function: Default page when accessing ecDB
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
+    require_once "include/login/auth.php";
+    require_once "include/debug.php";
+// Localize
+    require_once "include/localize.php";
+    if(isset($_COOKIE["language"])) { // for localization
+    $language = $_COOKIE["language"];
+    }
+    else { // Not set, set to en_US.utf8
+        $language = "en_US.utf8";
+    }
+    SetLanguage($language);
+// END
+// Custom Page Titles
+    $pageTitle = _("Home");
+// Hidden Search title for search dialogue
+// pageTitle did not work when localized, see header.php
+    $searchTitle = "Home";
+
+    include "include/head.php";
+
+    echo '<body><div id="wrapper">';
+// Header
+    include "include/header.php";
+//  END
+// Main menu
+    include "include/menu.php";
+// END
+// Main content
+    echo '<div id="content">';
+    echo '<div class="subMenu">';
+    echo "<ul>";
+    include "include/include_category_head.php";
+    $Head = new NameHead;
+    $Head->Head();
+    echo "</ul>";
+    include "include/statistics.php";
+    echo "</div></div>";
+// END
+// Text outside the main content
+    include "include/footer.php";
+// END
+    echo "</div></body></html>";
 ?>
-
-<?php 
- // Custom Page Titles
- $pageTitle = 'Home - ecDB';
- include("include/head.php")  
- ?>
-	
-	<body>
-		<div id="wrapper">
-			<!-- Header -->
-			<?php include 'include/header.php'; ?>
-			<!-- END -->
-			<!-- Main menu -->
-			<?php include 'include/menu.php'; ?>
-			<!-- END -->
-			<!-- Main content -->
-			<div id="content">
-				<div class="subMenu">
-					<ul>
-						<?php
-							include('include/include_category_head.php');
-
-							$Head = new NameHead;
-							$Head->Head();
-						?>
-					</ul>
-				</div>
-
-				<table class="globalTables" cellpadding="0" cellspacing="0">
-					<thead>
-						<tr>
-							<th>
-							</th>
-							<th>
-								<a href="?by=name&order=<?php 
-								if(isset($_GET['order'])){
-									$order = $_GET['order'];
-									if ($order == 'asc'){
-										echo 'desc';
-									}
-									else {
-										echo 'asc';
-									}
-								}
-								else {
-									echo 'desc';
-								}
-								?>">Name</a>
-							</th>
-							<th>
-								<a href="?by=category&order=<?php 
-								if(isset($_GET['order'])){
-									$order = $_GET['order'];
-									if ($order == 'asc'){
-										echo 'desc';
-									}
-									else {
-										echo 'asc';
-									}
-								}
-								else {
-									echo 'asc';
-								}
-								?>">Category</a>
-							</th>
-							<th>
-								<a href="?by=package&order=<?php 
-								if(isset($_GET['order'])){
-									$order = $_GET['order'];
-									if ($order == 'asc'){
-										echo 'desc';
-									}
-									else {
-										echo 'asc';
-									}
-								}
-								else {
-									echo 'asc';
-								}
-								?>">Package</a>
-							</th>
-							<th>
-								<a href="?by=pins&order=<?php 
-								if(isset($_GET['order'])){
-									$order = $_GET['order'];
-									if ($order == 'asc'){
-										echo 'desc';
-									}
-									else {
-										echo 'asc';
-									}
-								}
-								else {
-									echo 'asc';
-								}
-								?>">Pins</a>
-							</th>
-							<th>
-								Image
-							</th>
-							<th>
-								Datasheet
-							</th>
-							<th>
-								<a href="?by=smd&order=<?php 
-								if(isset($_GET['order'])){
-									if ($order == 'asc'){
-										echo 'desc';
-									}
-									else {
-										echo 'asc';
-									}
-								}
-								else {
-									echo 'asc';
-								}
-								?>">SMD</a>
-							</th>
-							<th>
-								<a href="?by=price&order=<?php 
-								if(isset($_GET['order'])){
-									$order = $_GET['order'];
-									if ($order == 'asc'){
-										echo 'desc';
-									}
-									else {
-										echo 'asc';
-									}
-								}
-								else {
-									echo 'asc';
-								}
-								?>">Price</a>
-							</th>
-							<th>
-								<a href="?by=quantity&order=<?php 
-								if(isset($_GET['order'])){
-									$order = $_GET['order'];
-									if ($order == 'asc'){
-										echo 'desc';
-									}
-									else {
-										echo 'asc';
-									}
-								}
-								else {
-									echo 'asc';
-								}
-								?>">Quantity</a>
-							</th>
-							<th>
-								Comment
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-					<div>	
-					<?php
-						include('include/include.php');
-
-						$Index = new ShowComponents;
-						$Index->Index();
-					?>
-					</div>
-					</tbody>
-				</table>
-			</div>
-			<!-- END -->
-			<!-- Text outside the main content -->
-				<?php include 'include/footer.php'; ?>
-			<!-- END -->
-		</div>
-	</body>
-</html>

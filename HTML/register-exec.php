@@ -1,18 +1,23 @@
 <?php
+// File: register-exec.php
+// Function: Add component based on existing component
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
 	//Start session
 	session_start();
 	
 //Include database connection details
-require_once('include/login/config.php');
-include('include/mysql_connect.php');
+require_once "include/login/config.php";
+include "include/mysql_connect.php";
 	
 	//Array to store validation errors
 	$errmsg_arr = array();
 	
 	//Validation error flag
 	$errflag = false;
-	
-
 	
 	//Sanitize the POST values
 	$fname = mysqli_real_escape_string($connection,$_POST['fname']);

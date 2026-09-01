@@ -1,13 +1,17 @@
 <?php
-//
 // File: Login-exec.php
-//
+// Function: Execute the login process
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license: 
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+// 
 //Start session
 session_start();
 
 //Include database connection details
-require_once('include/login/config.php');
-include('include/mysql_connect.php');
+require_once "include/login/config.php";
+include "include/mysql_connect.php";
 
 // Note: connection is $connection
 //Array to store validation errors
@@ -22,11 +26,11 @@ $password = mysqli_real_escape_string($connection,$_POST['password']);
 
 //Input Validations
 if ($login == '') {
-    $errmsg_arr[] = 'Login ID missing';
+    $errmsg_arr[] = _("Login ID missing");
     $errflag      = true;
 }
 if ($password == '') {
-    $errmsg_arr[] = 'Password missing';
+    $errmsg_arr[] = _("Password missing");
     $errflag      = true;
 }
 
@@ -52,8 +56,14 @@ if ($result) {
         $_SESSION['SESS_FIRST_NAME'] = $member['firstname'];
         $_SESSION['SESS_LAST_NAME']  = $member['lastname'];
         session_write_close();
-        $member_id = $_SESSION['SESS_MEMBER_ID'];
-        mysqli_query($connection,"INSERT INTO members_stats (members_stats_member) VALUES ('$member_id')");
+        $owner  =   $_SESSION['SESS_MEMBER_ID'];
+// Get the chosen language for the user
+        $GetLanguage = mysqli_query($connection,"SELECT language FROM members WHERE member_id = ".$owner."");
+        $personal = mysqli_fetch_assoc($GetLanguage);
+// Set or update the language cookie
+// Note: The setcookie() function must appear BEFORE the <html> tag, located in the head.php file
+        setcookie("language", $personal['language'], time() + (86400 * 30), "/"); // 86400 * 30 = 30 days
+
         header("location: index.php");
         exit();
     } else {

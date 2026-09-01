@@ -1,6 +1,13 @@
 <?php
-    // Lets only have the DB access information in one place
-	require_once('include/login/config.php');
+// File: include/mysql_connect.php
+// Function: Connect to the database
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license: 
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+// 
+// Lets only have the DB access information in one place
+	require_once "include/login/config.php";
 	$db_host = DB_HOST;
 	$db_username = DB_USER;
 	$db_pass = DB_PASSWORD;

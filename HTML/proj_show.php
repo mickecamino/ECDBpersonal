@@ -1,4 +1,11 @@
 <?php
+// File: proj_show.php
+// Function: Show projects
+// Revision date: 2026-08-30
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
 	require_once('include/login/auth.php');
 	require_once('include/debug.php');
 	
@@ -8,7 +15,7 @@
 ?>
 <?php 
  // Custom Page Titles
- $pageTitle = 'Show project - ecDB';
+ $pageTitle = _("Show project");
  include("include/head.php")  
  ?>
 	<body>
@@ -27,7 +34,7 @@
 							include('include/mysql_connect.php');
 							$project_id = mysqli_real_escape_string($connection,$_GET["proj_id"]);
 							$owner = $_SESSION['SESS_MEMBER_ID'];
-							
+
 							$result = mysqli_query($connection,"SELECT project_name FROM projects WHERE project_owner = ".$owner." AND project_id = ".$project_id."");
 
 							while($row = mysqli_fetch_array($result))
@@ -38,7 +45,7 @@
 							}
 						?>
 					</h1>
-					
+
 					<table class="globalTables" cellpadding="0" cellspacing="0">
 						<thead>
 							<tr>
@@ -108,7 +115,7 @@
 									?>">Package</a>
 								</th>
 								<th>
-									<a href="?proj_id=<?php echo $project_id; ?>&by=smd&order=<?php 
+									<a href="?proj_id=<?php echo $project_id; ?>&by=location&order=<?php 
 										if(isset($_GET['order'])){
 											if ($order == 'asc'){
 												echo 'desc';
@@ -120,7 +127,7 @@
 										else {
 											echo 'asc';
 										}
-									?>">SMD</a>
+									?>">Location</a>
 								</th>
 								<th>
 									<a href="?proj_id=<?php echo $project_id; ?>&by=price&order=<?php 

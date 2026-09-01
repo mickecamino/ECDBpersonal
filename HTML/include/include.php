@@ -19,22 +19,24 @@ class ShowComponents {
 				$order = 'asc';
 			}
 
-			if($by == 'price' or $by == 'pins' or $by == 'quantity') {
-				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." +0 ".$order."";
+			if($by == 'location' or $by == 'pins' or $by == 'quantity') {
+				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." +0 ".$order."";
 			}
 			elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd') {
-				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." ".$order."";
+				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE owner = ".$owner." ORDER by ".$by." ".$order."";
 			}
 			else {
-				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
+				$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
 			}
 		}
 		else {
-			$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
+			$GetDataComponentsAll = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE owner = ".$owner." ORDER by name ASC";
 		}
 
 
 		$sql_exec = mysqli_Query($connection,$GetDataComponentsAll);
+echo "DEBUG: inne i ShowComonents" . "\n";
+print_r($sql_exec);
 		while($showDetails = mysqli_fetch_array($sql_exec)) {
 			echo "<tr>";
 
@@ -116,24 +118,24 @@ class ShowComponents {
 			}
 
 			echo "<td>";
-			$smd = $showDetails['smd'];
-				if ($smd == "No"){
-					echo '<span class="fa fa-square-o fa-lg"></span>';
-				}
-				else{
-					echo '<span class="fa fa-check-square-o fa-lg"></span>';
-				}
-			echo "</td>";
-
-			echo "<td>";
-			$price = $showDetails['price'];
-				if ($price == ""){
+			$location = $showDetails['location'];
+				if ($location == ""){
 					echo "-";
 				}
 				else{
-					echo $price;
+					echo $location;
 				}
 			echo "</td>";
+
+//			echo "<td>";
+//			$price = $showDetails['price'];
+//				if ($price == ""){
+//					echo "-";
+//				}
+//				else{
+//					echo $price;
+//				}
+//			echo "</td>";
 
 			echo "<td>";
 			$quantity = $showDetails['quantity'];
@@ -188,18 +190,18 @@ class ShowComponents {
 					$order = 'asc';
 				}
 
-				if($by == 'price' or $by == 'pins' or $by == 'quantity') {
-					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
+				if($by == 'location' or $by == 'pins' or $by == 'quantity') {
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
 				}
 				elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd') {
-					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." ".$order."";
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by ".$by." ".$order."";
 				}
 				else {
-					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
 				}
 			}
 			else {
-				$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
+				$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category BETWEEN ".$subcatfrom." AND ".$subcatto." AND owner = ".$owner." ORDER by name ASC";
 			}
 
 			$sql_exec_component = mysqli_Query($connection,$ComponentsCategory);
@@ -275,22 +277,12 @@ class ShowComponents {
 				}
 
 				echo "<td>";
-				$smd = $showDetails['smd'];
-					if ($smd == "No"){
-						echo '<span class="fa fa-square-o fa-lg"></span>';
-					}
-					else{
-						echo '<span class="fa fa-check-square-o fa-lg"></span>';
-					}
-				echo "</td>";
-
-				echo "<td>";
-				$price = $showDetails['price'];
-					if ($price == ""){
+				$location = $showDetails['location'];
+					if ($location == ""){
 						echo "-";
 					}
 					else{
-						echo $price;
+						echo $location;
 					}
 				echo "</td>";
 
@@ -339,18 +331,18 @@ class ShowComponents {
 					$order = 'asc';
 				}
 
-				if($by == 'price' or $by == 'pins' or $by == 'quantity') {
-					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
+				if($by == 'location' or $by == 'pins' or $by == 'quantity') {
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." +0 ".$order."";
 				}
 				elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd') {
-					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." ".$order."";
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by ".$by." ".$order."";
 				}
 				else {
-					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
+					$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
 				}
 			}
 			else{
-				$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, smd, price, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
+				$ComponentsCategory = "SELECT id, name, category, package, pins, datasheet, cimage, location, quantity, comment FROM data WHERE category = ".$subcat." AND owner = ".$owner." ORDER by name ASC";
 			}
 
 			$sql_exec_component = mysqli_Query($connection,$ComponentsCategory);
@@ -422,22 +414,12 @@ class ShowComponents {
 				}
 
 				echo "<td>";
-				$smd = $showDetails['smd'];
-					if ($smd == "No"){
-						echo '<span class="fa fa-square-o fa-lg"> </span>';
-					}
-					else{
-						echo '<span class="fa fa-check-square-o fa-lg"> </span>';
-					}
-				echo "</td>";
-
-				echo "<td>";
-				$price = $showDetails['price'];
-					if ($price == ""){
+				$location = $showDetails['location'];
+					if ($location == ""){
 						echo "-";
 					}
 					else{
-						echo $price;
+						echo $location;
 					}
 				echo "</td>";
 
@@ -501,7 +483,7 @@ class ShowComponents {
 						$order = 'asc';
 					}
 
-					if($by == 'price' or $by == 'pins' or $by == 'quantity') {
+					if($by == 'location' or $by == 'pins' or $by == 'quantity') {
 						$SearchQuery = "SELECT * FROM data WHERE (name LIKE'%$find%' OR package LIKE'%$find%' OR manufacturer LIKE'%$find%' OR pins LIKE'%$find%' OR location LIKE'%$find%' OR comment LIKE'%$find%') AND owner = $owner ORDER by $by +0 $order";
 					}
 					elseif($by == 'name' or $by == 'category' or $by =='package' or $by =='smd' or $by =='manufacturer') {
@@ -613,22 +595,12 @@ class ShowComponents {
 					}
 
 					echo "<td>";
-					$smd = $showDetails['smd'];
-						if ($smd == "No"){
-							echo '<span class="fa fa-square-o fa-lg"> </span>';
-						}
-						else{
-							echo '<span class="fa fa-check-square-o fa-lg"> </span>';
-						}
-					echo "</td>";
-
-					echo "<td>";
-					$price = $showDetails['price'];
-						if ($price == ""){
+					$location = $showDetails['location'];
+						if ($location == ""){
 							echo "-";
 						}
 						else{
-							echo $price;
+							echo $location;
 						}
 					echo "</td>";
 

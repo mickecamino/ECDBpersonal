@@ -1,4 +1,11 @@
 <?php
+// File: proj_edit.php
+// Function: Edit projecs
+// Revision date: 2026-08-31
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
 	require_once('include/login/auth.php');
 	include('include/mysql_connect.php');
 	require_once('include/debug.php');
@@ -21,7 +28,7 @@
 ?>
 <?php 
  // Custom Page Titles
- $pageTitle = 'Your Projects - ecDB';
+ $pageTitle = _("Your Projects");
  include("include/head.php")  
  ?>
 	

@@ -32,7 +32,7 @@ class NameHead {
 			echo ' class="isComponents"';
 		}
 		echo '>';
-		echo "All";
+		echo "Statistics";
 		echo '</a></li> ';
 
 		while ($ShowDetailsCatname = mysqli_fetch_array($sql_exec_catname)) {
@@ -91,5 +91,3 @@ class NameHead {
 	}
 }
 ?>
-
-

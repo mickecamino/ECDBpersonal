@@ -91,12 +91,12 @@ class ProjectShow {
 			echo "</td>";
 
 			echo "<td>";
-			$smd = $showDetails['smd'];
-				if ($smd == "No"){
-					echo '<span class="fa fa-square-o fa-lg"></span>';
+			$location = $showDetails['location'];
+				if ($location == ""){
+					echo "-";
 				}
 				else{
-					echo '<span class="fa fa-check-square-o fa-lg"></span>';
+					echo $location;
 				}
 			echo "</td>";
 

@@ -5,12 +5,12 @@
 // 
 // Purpose: Uses FPDF to generate PDF reports
 
-require_once ('include/login/auth.php');  // Who is the user
-include ('include/mysql_connect.php');    // Database Details
+require_once "include/login/auth.php";  // Who is the user
+include "include/mysql_connect.php";    // Database Details
 
-
-
-
+// Hmmmmm
+// Import/Export?
+// Print shopping list
             
 
 ?>

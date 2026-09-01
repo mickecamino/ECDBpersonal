@@ -6,6 +6,8 @@ class Shoplist {
 		include('mysql_connect.php');
 		
 		$owner = $_SESSION['SESS_MEMBER_ID'];
+		$GetPersonal = mysqli_query($connection,"SELECT currency FROM members WHERE member_id = ".$owner."");
+		$personal = mysqli_fetch_assoc($GetPersonal);
 		
 		if(isset($_GET['by'])) {
 		
@@ -65,17 +67,6 @@ class Shoplist {
 				}
 			echo "</td>";
 
-
-			echo "<td>";
-			$smd = $showDetails['smd'];
-				if ($smd == "No"){
-					echo '<span class=" fa fa-square-o fa-lg"></span>';
-				}
-				else{
-					echo '<span class="fa fa-check-square-o fa-lg"></span>';
-				}
-			echo "</td>";
-
 			echo "<td>";
 			$price = $showDetails['price'];
 				if ($price == ""){
@@ -83,6 +74,7 @@ class Shoplist {
 				}
 				else{
 					echo $price;
+					if($personal['currency'] == "SEK") echo " kr";
 				}
 			echo "</td>";
 
