@@ -301,7 +301,7 @@ include "include/head.php";
                     <div class="buttons">
                         <div class="input">
                             <?php
-                            echo '<button class="button" name="edit" type="submit"><span class=" fa fa-pencil fa-lg"></span>' . _(" Edit Component") . '</button> ';
+                            echo '<button class="button" name="edit" type="submit"><span class=" fa fa-pencil fa-lg"></span> ' . _(" Edit Component") . '</button> ';
                             echo '<button class="button" name="based" type="submit"><span class="fa fa-plus-square fa-lg"></span> ' . _(" New based on this") . '</button> ';
                             echo '<button class="button red" name="delete" type="submit"><span class="fa fa-trash fa-lg"></span> ' . _(" Delete component") . '</button> ';
                             ?>
