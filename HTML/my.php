@@ -67,7 +67,7 @@
             echo '<td><input name="newpass" class="medium" type="password" value="" onpaste="return false;" /></td>'; // fourth column
             echo '</tr><tr>'; // end second row, start third row
             echo '<td class="boldText">' . _("Currency") . '</td>'; // first column
-            echo '<td><select name="currency"><option value="SEK"'; // start second column
+            echo '<td><select name="currency"><option value="SEK" '; // start second column
                 if(!isset($_POST['submit']) && $executesql['currency'] == 'SEK') { echo 'selected';}
                 if(isset($_POST['submit']) && $_POST['currency'] == 'SEK') { echo 'selected';}
                 echo '>SEK</option>';
@@ -85,7 +85,7 @@
                 echo '>GBP</option>';
             echo '</select></td>'; // end second column
             echo '<td class="boldText">' . _("Language") . '</td>'; // third column
-                echo '<td><select name="language"><option value="sv_SE.utf8"'; // start fourth column
+                echo '<td><select name="language"><option value="sv_SE.utf8" '; // start fourth column
                 if(!isset($_POST['submit']) && $executesql['language'] == 'sv_SE.utf8') { echo 'selected';}
                 if(isset($_POST['submit']) && $_POST['language'] == 'sv_SE.utf8') { echo 'selected';}
                 echo '>' . _("Swedish") . '</option>';
