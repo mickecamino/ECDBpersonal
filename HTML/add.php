@@ -49,7 +49,7 @@
     echo '<tr><td class="boldText">'. _("Name") . '</td>'; //first column
     echo '<td><input name="name" id="name" type="text" class="medium" value="'; //start second column
     if(isset($_POST['submit'])) { echo $_POST['name']; }
-    echo '"autofocus tabindex="0"></td>'; // end second column
+    echo '" autofocus tabindex="0"></td>'; // end second column
     echo '<td class="boldText">' . _("Category") . '</td>'; // third column
     echo '<td><select name="category">'; // start fourth column
     // Include the category selector menu.
