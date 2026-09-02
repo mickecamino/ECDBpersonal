@@ -224,7 +224,7 @@
 // start and end fifth and sixth columns, end fifth row
     echo '<td></td><td></td></tr>';
 // start sixth row, start and end first column
-    echo '<tr><td class="boldText">' . _("Appnote") . '</td>';
+    echo '<tr><td class="boldText">' . _("Application Note") . '</td>';
 // start and end second column
     echo '<td><div class="ui-widget"><input id="appnote" name="appnote" type="text" value="' . $executesql['appnote'] . '" ></div></td>';
 // start and end third to sixth columns. end sixth row
