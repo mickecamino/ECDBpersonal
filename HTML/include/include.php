@@ -35,8 +35,6 @@ class ShowComponents {
 
 
 		$sql_exec = mysqli_Query($connection,$GetDataComponentsAll);
-echo "DEBUG: inne i ShowComonents" . "\n";
-print_r($sql_exec);
 		while($showDetails = mysqli_fetch_array($sql_exec)) {
 			echo "<tr>";
 
@@ -127,16 +125,6 @@ print_r($sql_exec);
 				}
 			echo "</td>";
 
-//			echo "<td>";
-//			$price = $showDetails['price'];
-//				if ($price == ""){
-//					echo "-";
-//				}
-//				else{
-//					echo $price;
-//				}
-//			echo "</td>";
-
 			echo "<td>";
 			$quantity = $showDetails['quantity'];
 				if ($quantity == ""){
@@ -151,7 +139,7 @@ print_r($sql_exec);
 			if ($comment==""){
 				echo '<td class="comment"><div>';
 				echo "-";
-				echo '</span></div></td>';
+				echo '</div></td>';
 			}
 			else{
 				echo '<td class="comment"><div><span class="fa fa-comment fa-lg"></span><span class="comment">';
@@ -300,7 +288,7 @@ print_r($sql_exec);
 				if ($comment == ""){
 					echo '<td class="comment"><div>';
 					echo "-";
-					echo '</span></div></td>';
+					echo '</div></td>';
 				}
 				else{
 					echo '<td class="comment"><div><span class="fa fa-comment fa-lg"></span><span class="comment">';
@@ -437,7 +425,7 @@ print_r($sql_exec);
 				if ($comment == ""){
 					echo '<td class="comment"><div>';
 					echo "-";
-					echo '</span></div></td>';
+					echo '</div></td>';
 				}
 				else{
 					echo '<td class="comment"><div><span class="fa fa-comment fa-lg"></span><span class="comment">';
@@ -612,7 +600,7 @@ print_r($sql_exec);
 					if ($comment == ""){
 						echo '<td class="comment"><div>';
 						echo "-";
-						echo '</span></div></td>';
+						echo '</div></td>';
 					}
 					else{
 						echo '<td class="comment"><div><span class="fa fa-comment fa-lg"></span><span class="comment">';
