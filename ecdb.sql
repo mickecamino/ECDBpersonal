@@ -47,17 +47,16 @@ INSERT INTO `category_head` (`id`, `name`) VALUES(4, 'Diode');
 INSERT INTO `category_head` (`id`, `name`) VALUES(5, 'IC');
 INSERT INTO `category_head` (`id`, `name`) VALUES(6, 'Inductor');
 INSERT INTO `category_head` (`id`, `name`) VALUES(7, 'Mechanic');
-INSERT INTO `category_head` (`id`, `name`) VALUES(16, 'Module');
 INSERT INTO `category_head` (`id`, `name`) VALUES(8, 'Optical');
-INSERT INTO `category_head` (`id`, `name`) VALUES(18, 'Oscillator');
-INSERT INTO `category_head` (`id`, `name`) VALUES(13, 'Resistor');
-INSERT INTO `category_head` (`id`, `name`) VALUES(15, 'Sensor');
 INSERT INTO `category_head` (`id`, `name`) VALUES(10, 'Switch');
 INSERT INTO `category_head` (`id`, `name`) VALUES(11, 'Power');
+INSERT INTO `category_head` (`id`, `name`) VALUES(13, 'Resistor');
 INSERT INTO `category_head` (`id`, `name`) VALUES(12, 'Transistor');
 INSERT INTO `category_head` (`id`, `name`) VALUES(14, 'Display');
+INSERT INTO `category_head` (`id`, `name`) VALUES(15, 'Sensor');
+INSERT INTO `category_head` (`id`, `name`) VALUES(16, 'Module');
 INSERT INTO `category_head` (`id`, `name`) VALUES(17, 'Miscellaneous');
-
+INSERT INTO `category_head` (`id`, `name`) VALUES(18, 'Oscillator');
 -- --------------------------------------------------------
 
 --
@@ -256,13 +255,12 @@ INSERT INTO `category_sub` (`id`, `name`) VALUES(1899, 'Misc');
 --
 
 CREATE TABLE IF NOT EXISTS `data` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `owner` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `manufacturer` varchar(64) NOT NULL,
   `package` varchar(64) NOT NULL,
   `pins` varchar(11) NOT NULL,
-  `smd` varchar(3) NOT NULL DEFAULT 'No',
   `quantity` varchar(11) NOT NULL,
   `order_quantity` varchar(11) NOT NULL DEFAULT '0',
   `location` varchar(32) NOT NULL,
@@ -292,37 +290,15 @@ CREATE TABLE IF NOT EXISTS `members` (
   `login` varchar(32) NOT NULL,
   `mail` varchar(32) NOT NULL,
   `passwd` varchar(32) NOT NULL,
-  `admin` int(11) NOT NULL DEFAULT '0',
-  `measurement` int(11) NOT NULL DEFAULT '1',
   `currency` varchar(3) NOT NULL DEFAULT 'USD',
-  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `language`, varchar(10) NOT NULL DEFAULT 'sv_SE.utf8'
 ) ENGINE=MyISAM AUTO_INCREMENT=1801 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `mail`, `passwd`, `admin`, `measurement`, `currency`, `reg_date`) VALUES(4, 'Demo', 'Demo', 'demo', 'mail@mailen.com', 'fe01ce2a7fbac8fafaed7c982a04e229', 0, 1, 'USD', '2013-07-25 02:52:30');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `members_stats`
---
--- Creation: Dec 23, 2017 at 04:51 PM
--- Last update: May 15, 2018 at 12:38 AM
---
-
-CREATE TABLE IF NOT EXISTS `members_stats` (
-`members_stats_id` int(11) NOT NULL,
-  `members_stats_member` int(11) NOT NULL,
-  `members_stats_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM AUTO_INCREMENT=160 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `members_stats`
---
-
+INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `mail`, `passwd`, `currency`, `language`) VALUES(4, 'Demo', 'Demo', 'demo', 'mail@mailen.com', 'fe01ce2a7fbac8fafaed7c982a04e229', 'USD', 'en_US.utf8');
 
 -- --------------------------------------------------------
 
@@ -428,11 +404,6 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=702;
 --
 ALTER TABLE `members`
 MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1801;
---
--- AUTO_INCREMENT for table `members_stats`
---
-ALTER TABLE `members_stats`
-MODIFY `members_stats_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=160;
 --
 -- AUTO_INCREMENT for table `projects`
 --
