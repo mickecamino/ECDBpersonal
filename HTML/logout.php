@@ -43,7 +43,7 @@
     echo '<form class="globalForms" name="loginForm" method="post" action="login-exec.php">';
     echo '<div class="textInput"><label class="keyWord">' . _("Username") . '</label>';
     echo '<div class="input"><input name="login" class="medium" type="text" id="login"/></div></div>';
-    echo '<div class="textInput"><label class="keyWord">' . _("Password") . '</label>':
+    echo '<div class="textInput"><label class="keyWord">' . _("Password") . '</label>';
     echo '<div class="input"><input name="password" class="medium" type="password" id="password"/></div></div>';
     echo '<div class="buttons"><div class="input">';
     echo '<button class="button green" name="Submit" type="submit"><span class="fa fa-key fa-lg"></span> ' . _("Login") . '</button></div></div></form></div>';
