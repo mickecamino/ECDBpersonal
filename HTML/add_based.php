@@ -63,16 +63,6 @@ include "include/head.php";
     include "include/menu.php";
 // END
 // Main content
-// Call the language translator
-    if(isset($_COOKIE["language"])) { // for localization
-    $language = $_COOKIE["language"];
-    }
-    else { // Not set, set to en_US.utf8
-        $language = "en_US.utf8";
-    }
-    require_once "include/localize.php";
-    SetLanguage($language);
-// END
     echo '<div id="content"><h1>' . _("Add new component based on ") . '<a href="component.php?view=';
     echo $executesql['id'] . '">';
     echo $executesql['name'] . '</a></h1>';

@@ -33,16 +33,6 @@
     include "include/include_category_sub.php";
     $Sub = new NameSub;
     $Sub->Sub();
-// Call the language translator
-    require_once "include/localize.php";
-    if(isset($_COOKIE["language"])) { // for localization
-    $language = $_COOKIE["language"];
-    }
-    else { // Not set, set to en_US.utf8
-        $language = "en_US.utf8";
-    }
-    SetLanguage($language);
-// END
 // start table
     echo '</ul></div><table class="globalTables" cellpadding="0" cellspacing="0">';
 // start head, start first row, start and end first column, start second column

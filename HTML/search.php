@@ -9,16 +9,6 @@
     require_once "include/login/auth.php";
     require_once "include/debug.php";
     echo "<!DOCTYPE HTML>";
-// Localization
-    if(isset($_COOKIE["language"])) { // for localization
-    $language = $_COOKIE["language"];
-    }
-    else { // Not set, set to en_US.utf8
-        $language = "en_US.utf8";
-    }
-    require_once "include/localize.php";
-    SetLanguage($language, "ecdb");
-// end localization
     // Custom Page Titles
     $pageTitle = _("Search");
 // Hidden Search title for search dialogue

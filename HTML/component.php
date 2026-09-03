@@ -110,16 +110,6 @@ include "include/head.php";
             <!-- END -->
             <!-- Main content -->
 <?php
-// Call the language translator
-    require_once "include/localize.php";
-    if(isset($_COOKIE["language"])) { // for localization
-    $language = $_COOKIE["language"];
-    }
-    else { // Not set, set to en_US.utf8
-        $language = "en_US.utf8";
-    }
-    SetLanguage($language);
-// END
 ?>
             <div id="content">
                 <h2>

@@ -28,16 +28,6 @@
     include "include/menu.php";
 // END
 // Main content
-// Call the language translato
-    require_once "include/localize.php";
-    if(isset($_COOKIE["language"])) { // for localization
-    $language = $_COOKIE["language"];
-    }
-    else { // Not set, set to en_US.utf8
-        $language = "en_US.utf8";
-    }
-    SetLanguage($language);
-// END
     echo '<div id="content">';
     echo '<h1>' . _("Settings") . '</h1>';
     include "include/include_my_settings.php";

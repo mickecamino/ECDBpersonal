@@ -23,15 +23,6 @@
 // Main menu
     include "include/menu.php";
 // END
-// Call the language translator
-    if(isset($_COOKIE["language"])) { // for localization
-    $language = $_COOKIE["language"];
-    }
-    else { // Not set, set to en_US.utf8
-        $language = "en_US.utf8";
-    }
-    require_once "include/localize.php";
-    SetLanguage($language, "ecdb");
 // Main content
     echo '<div id="content">';
     echo "<h1>" . _("Add new component") . "</h1>";
