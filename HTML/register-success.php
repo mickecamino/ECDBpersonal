@@ -1,74 +1,45 @@
-<?php 
-// File: add_based.php
-// Function: Add component based on existing component
-// Revision date: 2026-08-30
+<?php
+// File: register-success.php
+// Function: After successful registration this file is called
+// Revision date: 2026-09-03
 // Revised by: Mikael Karlsson
 // This file is distributed under the license:
 // Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 //
- // Custom Page Titles
- $pageTitle = _("Register");
- include("include/head.php")  
- ?>
-	
-	
-	<body>
-		<div id="wrapper">
-			
-			<!-- Header -->
-			<div id="header">
-				<span class="loggo">
-					<span class="ec">ec</span><span class="db">DB</span>
-				</span>
-				<span class="beta">beta</span>
-				<span class="slogan">
-					Electronic<br>
-					Components<br>
-					DataBase
-				</span>
-			</div>
-			<!-- END -->
-			
-			<!-- Main menu -->
-			<div id="menu">
-				<ul>
-					<li><a href="."><span class="fa fa-key fa-lg"></span> Login</a></li>
-					<li><a href="register.php"><span class="fa user fa-lg"></span> Register</a></li>
-					<li><a href="about.php" class="selected"><span class="fa fa-document fa-lg"></span> About</a></li>
-				</ul>
-			</div>
-			<!-- END -->
-			
-			<!-- Main content -->
-			<div id="content">
-				
-				<h1>Registration success</h1>
-				
-				<b>Please login</b><br /><br />
-				
-				<form id="loginForm" name="loginForm" method="post" action="login-exec.php">
-					<table width="300" border="0" align="center" cellpadding="2" cellspacing="0">
-						<tr>
-							<td width="112">Login</td>
-							<td width="188"><input name="login" type="text" class="textfield" id="login" /></td>
-						</tr>
-						<tr>
-							<td>Password</td>
-							<td><input name="password" type="password" class="textfield" id="password" /></td>
-						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td><input type="submit" name="Submit" value=" Login " /></td>
-						</tr>
-					</table>
-				</form>
-			</div>
-			<!-- END -->
-			
-			<!-- Text outside the main content -->
-				<?php include 'include/footer.php'; ?>
-			<!-- END -->
-			
-		</div>
-	</body>
-</html>
+// Custom Page Titles
+    $pageTitle = _("Register");
+    include "include/head.php";
+
+    echo '<body><div id="wrapper">';
+// Header
+    echo '<div id="header">';
+    echo 'ecDB Personal';
+    echo '<br>Electronic<br>Components<br>DataBase</div>';
+// END
+// Main menu
+    echo '<div id="menu"><ul>';
+    echo '<li><a href="."><span class="fa fa-key fa-lg"></span> ' . _("Login") . '</a></li>';
+    echo '<li><a href="register.php"><span class="fa user fa-lg"></span> ' . _("Register") . '</a></li>';
+    echo '<li><a href="about.php" class="selected"><span class="fa fa-document fa-lg"></span> ' . _("About") . '</a></li>';
+    echo '</ul></div>';
+// END
+// Main content
+    echo '<div id="content">';
+    echo '<h1>' . _("Registration success") . '</h1>';
+    echo '<b>' . _("Please login") . '</b><br><br>';
+
+    echo '<form id="loginForm" name="loginForm" method="post" action="login-exec.php">';
+    echo '<table width="300" border="0" align="center" cellpadding="2" cellspacing="0">';
+    echo '<tr><td width="112">' . _("Login") . '</td>';
+    echo '<td width="188"><input name="login" type="text" class="textfield" id="login" /></td>';
+    echo '</tr><tr><td>' . _("Password") . '</td>';
+    echo '<td><input name="password" type="password" class="textfield" id="password" /></td>';
+    echo '</tr><tr><td>&nbsp;</td>';
+    echo '<td><input type="submit" name="Submit" value= ' . _("Login") . ' /></td>';
+    echo '</tr></table></form></div>';
+// END
+// Text outside the main content
+    include "include/footer.php";
+// END
+    echo '</div></body></html>';
+?>

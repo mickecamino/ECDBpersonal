@@ -11,7 +11,6 @@ class My {
         $executesql       = mysqli_fetch_assoc($GetDataComponent);
         $firstname        = strip_tags(mysqli_real_escape_string($connection,$_POST['firstname']));
         $lastname         = strip_tags(mysqli_real_escape_string($connection,$_POST['lastname']));
-        $mail             = strip_tags(mysqli_real_escape_string($connection,$_POST['mail']));
         $oldpass          = strip_tags(mysqli_real_escape_string($connection,$_POST['oldpass']));
         $newpass          = strip_tags(mysqli_real_escape_string($connection,$_POST['newpass']));
         $currency         = strip_tags(mysqli_real_escape_string($connection,$_POST['currency']));
@@ -35,16 +34,6 @@ class My {
         elseif (strlen($lastname) <= 2) {
             echo '<div class="message red">';
             echo _("Minimum of 2 chars in last name.");
-            echo '</div>';
-        }
-        elseif ($mail == '') {
-            echo '<div class="message red">';
-            echo _("Mail missing");
-            echo '</div>';
-        }
-        elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            echo '<div class="message red">';
-            echo _("Invalid e-mail address");
             echo '</div>';
         }
         elseif (!empty($oldpass) && !empty($newpass) && $owner == 4) {
@@ -74,11 +63,11 @@ class My {
         }
         else {
             if (!empty($oldpass) && !empty($newpass)) {
-                $sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', mail = '$mail', passwd = '".md5($newpass)."', currency = '$currency' WHERE member_id = '$owner'";
+                $sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', passwd = '".md5($newpass)."', currency = '$currency' WHERE member_id = '$owner'";
                 $sql_exec = mysqli_query($connection,$sql);
             }
             else {
-                $sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', mail = '$mail', currency = '$currency', language = '$language' WHERE member_id = '$owner'";
+                $sql="UPDATE members SET firstname = '$firstname', lastname = '$lastname', currency = '$currency', language = '$language' WHERE member_id = '$owner'";
                 $sql_exec = mysqli_query($connection,$sql);
 // Update the language cookie
                     setcookie("language", $language, time() + (86400 * 30), "/"); // 86400 * 30 = 30 days

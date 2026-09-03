@@ -51,7 +51,6 @@
     echo '<label class="keyWord">' . _("First name") . '</label><div class="input"><input name="fname" type="text" class="medium" id="fname" /></div></div>';
     echo '<div class="textInput"><label class="keyWord">' . _("Last name") . '</label><div class="input"><input name="lname" type="text" class="medium" id="lname" /></div></div>';
     echo '<div class="textInput"><label class="keyWord">' . _("Username") . '</label><div class="input"><input name="login" type="text" class="medium" id="login" /></div></div>';
-    echo '<div class="textInput"><label class="keyWord">' . _("E-mail") . '</label><div class="input"><input name="mail" type="text" class="medium" id="mail" /></div></div>';
     echo '<div class="textInput"><label class="keyWord">' . _("Password") . '</label><div class="input"><input name="password" type="password" class="medium" id="password" /></div></div>';
     echo '<div class="textInput"><label class="keyWord">' . _("Repeat password") . '</label><div class="input"><input name="cpassword" type="password" class="medium" id="cpassword" onpaste="return false;" /></div></div>';
     echo '<div class="buttons"><div class="input"><button class="button green" name="Submit" type="submit">' . _("Register") . '</button></div></div></form></div>';
