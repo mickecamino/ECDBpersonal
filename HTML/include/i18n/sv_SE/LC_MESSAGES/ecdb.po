@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ecdb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-01 16:05+0200\n"
+"POT-Creation-Date: 2026-09-03 17:54+0200\n"
 "PO-Revision-Date: 2026-08-31 18:00+0200\n"
 "Last-Translator: Mikael Karlsson>\n"
 "Language-Team: Svenska\n"
@@ -18,96 +18,101 @@ msgstr ""
 msgid "Add Component"
 msgstr "Lägg till komponent"
 
-#: add.php:37
+#: add.php:28
 msgid "Add new component"
 msgstr "Lägg till en komponent"
 
-#: add.php:42 search.php:153 category.php:97 add_based.php:83 shoplist.php:135
+#: add.php:33 search.php:143 category.php:87 component_edit.php:123
+#: add_based.php:73 shoplist.php:125
 msgid "Comment"
 msgstr "Notering"
 
-#: add.php:49 search.php:58 category.php:57 add_based.php:86 proj_list.php:64
-#: shoplist.php:52
+#: add.php:40 search.php:48 category.php:47 component_edit.php:128
+#: add_based.php:76 proj_list.php:53 proj_show.php:57 shoplist.php:42
 msgid "Name"
 msgstr "Namn"
 
-#: add.php:53 search.php:73 category.php:64 include/statistics.php:36
-#: add_based.php:88
+#: add.php:44 search.php:63 category.php:54 include/statistics.php:38
+#: component_edit.php:132 add_based.php:78 proj_show.php:73
 msgid "Category"
 msgstr "Kategori"
 
-#: add.php:60 add.php:126 search.php:151 category.php:95 component.php:188
-#: add_based.php:124 add_based.php:164 shoplist.php:117
+#: add.php:51 add.php:117 search.php:141 category.php:85 component_edit.php:164
+#: component_edit.php:237 component_edit.php:250 component.php:178
+#: add_based.php:114 add_based.php:154 shoplist.php:107
 msgid "Quantity"
 msgstr "Antal"
 
-#: add.php:65 search.php:88 component.php:230 add_based.php:126 shoplist.php:69
+#: add.php:56 search.php:78 component_edit.php:172 component.php:220
+#: add_based.php:116 proj_show.php:89 shoplist.php:59
 msgid "Manufacturer"
 msgstr "Tillverkare"
 
-#: add.php:69 search.php:103 category.php:71 component.php:239
-#: add_based.php:128 shoplist.php:85
+#: add.php:60 search.php:93 category.php:61 component_edit.php:176
+#: component.php:229 add_based.php:118 proj_show.php:105 shoplist.php:75
 msgid "Package"
 msgstr "Förpackning"
 
-#: add.php:73 search.php:118 category.php:78 component.php:248
-#: add_based.php:130
+#: add.php:64 search.php:108 category.php:68 component_edit.php:180
+#: component.php:238 add_based.php:120
 msgid "Pins"
 msgstr "Antal ben"
 
-#: add.php:78 search.php:136 category.php:88 component.php:171
-#: add_based.php:132
+#: add.php:69 search.php:126 category.php:78 component_edit.php:186
+#: component.php:161 add_based.php:122 proj_show.php:120
 msgid "Location"
 msgstr "Plats"
 
-#: add.php:82 component.php:202 add_based.php:134 shoplist.php:101
+#: add.php:73 component_edit.php:190 component.php:192 add_based.php:124
+#: proj_show.php:136 shoplist.php:91
 msgid "Price"
 msgstr "Pris"
 
-#: add.php:86 add_based.php:136
+#: add.php:77 component_edit.php:194 add_based.php:126
 msgid "To order"
 msgstr "Att beställa"
 
-#: add.php:93 component.php:258 add_based.php:138
+#: add.php:84 component_edit.php:202 component.php:248 add_based.php:128
 msgid "Recycled"
 msgstr "Återanvänd"
 
-#: add.php:96 add.php:100 maintenance.php:56 add_based.php:142
-#: add_based.php:147
+#: add.php:87 add.php:91 component_edit.php:206 component_edit.php:210
+#: maintenance.php:56 add_based.php:132 add_based.php:137
 msgid "Yes"
 msgstr "Ja"
 
-#: add.php:97 add.php:101 maintenance.php:49 add_based.php:143
-#: add_based.php:148
+#: add.php:88 add.php:92 component_edit.php:207 component_edit.php:211
+#: maintenance.php:49 add_based.php:133 add_based.php:138
 msgid "No"
 msgstr "Nej"
 
-#: add.php:108 search.php:122 category.php:81 component.php:270
-#: add_based.php:154
+#: add.php:99 search.php:112 category.php:71 component_edit.php:217
+#: component.php:260 add_based.php:144
 msgid "Datasheet"
 msgstr "Datablad"
 
-#: add.php:112 search.php:120 category.php:80 add_based.php:156
+#: add.php:103 search.php:110 category.php:70 component_edit.php:221
+#: add_based.php:146
 msgid "Image"
 msgstr "Bild"
 
-#: add.php:118 component.php:281 add_based.php:159
+#: add.php:109 component_edit.php:227 component.php:271 add_based.php:149
 msgid "Application Note"
 msgstr "Applikationsnot"
 
-#: add.php:125 add_based.php:163
+#: add.php:116 add_based.php:153
 msgid "Add component to project"
 msgstr "Addera komponent till projekt"
 
-#: add.php:142 proj_edit.php:49 add_based.php:182 my.php:99
+#: add.php:133 proj_edit.php:49 add_based.php:172 my.php:100
 msgid "Save"
 msgstr "Spara"
 
-#: search.php:23 include/header.php:46
+#: search.php:13 include/header.php:46
 msgid "Search"
 msgstr "Sök"
 
-#: search.php:39
+#: search.php:29
 msgid "Search results"
 msgstr "Sökresultat"
 
@@ -115,31 +120,97 @@ msgstr "Sökresultat"
 msgid "Categories"
 msgstr "Kategorier"
 
-#: include/statistics.php:23 test5.php:22
-msgid "There are "
-msgstr "Det finns "
+#: include/include_category_head.php:40
+msgid "Statistics"
+msgstr "Statistik"
 
-#: include/statistics.php:23
-msgid " components, "
-msgstr "komponenter"
+#: include/include.php:436 include/koll.php:429
+msgid "You forgot to enter a search term."
+msgstr "Ange en sökterm"
 
-#: include/statistics.php:26
-msgid " categories and "
-msgstr " kategorier och "
+#: include/include.php:466 include/koll.php:459
+msgid "Sorry, but we can not find an entry to match your query."
+msgstr "Tyvärr, hittade ingenting"
 
-#: include/statistics.php:29
-msgid " project(s)s in the database"
-msgstr " projekt i databasen"
+#: include/include.php:642 include/koll.php:635
+msgid "You have to specify a name!"
+msgstr "Du måste ange ett namn!"
 
-#: include/statistics.php:32
-msgid "You have the following component count in the database"
-msgstr "Du har dessa komponenter i databasen"
+#: include/include.php:647 include/koll.php:640
+msgid "You have to choose a category!"
+msgstr "Du måste ange en kategori"
 
-#: include/statistics.php:36
+#: include/include.php:652 include/koll.php:645
+msgid "You have to choose a project!"
+msgstr "Du måste välja ett projekt!"
+
+#: include/include.php:657 include/koll.php:650
+msgid ""
+"You have to specify a quantity for this component to add to the project!"
+msgstr "Du måste ange ett antal för att kunna lägga till i projektet"
+
+#: include/include.php:662 include/koll.php:655
+msgid "Max 2500 characters in the comment!"
+msgstr "Maximala antal tecken i kommentarer är 2 500"
+
+#: include/include.php:667 include/koll.php:660
+msgid "The quantity must only be a number!"
+msgstr "Antal skall vara numeriskt"
+
+#: include/include.php:672 include/koll.php:665
+msgid "The pin-count must only be a number!"
+msgstr "Antal ben skall vara numeriskt"
+
+#: include/include.php:677 include/koll.php:670
+msgid "The price must only be a number!"
+msgstr "Pris skall vara numeriskt"
+
+#: include/include.php:682 include/koll.php:675
+msgid "The order quantity must only be a number!"
+msgstr "Beställt antal skall vara numeriskt"
+
+#: include/include.php:698 include/koll.php:691
+msgid "Component added!"
+msgstr "Komponenten tillagd"
+
+#: include/include.php:700 include/koll.php:693 component.php:96
+msgid "View component"
+msgstr "Visa komponent"
+
+#: include/statistics.php:14
+msgid "You have"
+msgstr "Du har"
+
+#: include/statistics.php:16
+msgid "component, and"
+msgstr "komponent, och"
+
+#: include/statistics.php:18
+msgid "components, and"
+msgstr "komponenter, och"
+
+#: include/statistics.php:25
+msgid "project"
+msgstr "projekt"
+
+#: include/statistics.php:27
+msgid "projects"
+msgstr "projekt"
+
+#: include/statistics.php:30
+msgid "in the database"
+msgstr "i databasen"
+
+#: include/statistics.php:34
+msgid "You have the following component count in each category"
+msgstr "Du har följande komponentantal i varje kategori"
+
+#: include/statistics.php:38
 msgid "Component count"
 msgstr "Antal komponenter"
 
 #: include/include_component_add_project.php:22
+#: include/include_component_edit_project_add.php:19
 msgid " - Project - "
 msgstr " - Projekt - "
 
@@ -172,54 +243,46 @@ msgid ""
 " ecDB - Created by Nils Fredriksson. ecDBpersonal created by Pete Willard, "
 "modified by Mikael Karlsson"
 msgstr ""
-" ecDB - skapad av Nils Fredriksson. ecDBpersonal skapad av Pete Willard, "
+" ecDB -skapad av Nils Fredriksson. ecDBpersonal skapad av Pete Willard, "
 "modifierad av Mikael Karlsson"
 
-#: include/include_my_settings.php:22
+#: include/include_my_settings.php:21 register-exec.php:43
 msgid "First name missing"
 msgstr "Förnamnet kan inte vara tomt"
 
-#: include/include_my_settings.php:27
+#: include/include_my_settings.php:26 register-exec.php:47
 msgid "Minimum of 2 chars in first name."
 msgstr "Förnamnet måste innehålla minst två tecken"
 
-#: include/include_my_settings.php:32
+#: include/include_my_settings.php:31 register-exec.php:51
 msgid "Last name missing"
 msgstr "Efternamnet kan inte vara tomt"
 
-#: include/include_my_settings.php:37
+#: include/include_my_settings.php:36 register-exec.php:55
 msgid "Minimum of 2 chars in last name."
 msgstr "Efternamnet måste innehålla minst två tecken"
 
-#: include/include_my_settings.php:42
-msgid "Mail missing"
-msgstr "E-post kan inte vara tomt"
-
-#: include/include_my_settings.php:47
-msgid "Invalid e-mail address"
-msgstr "Ogiltig e-postadress"
-
-#: include/include_my_settings.php:52
+#: include/include_my_settings.php:41
 msgid "CHANGE PASSWORD FOR THE DEMO ACCOUNT NOT POSSIBLE!!!!"
 msgstr "DU KAN INTE BTA LÖSENORDET FÖR ANVÄNDARE DEMO!!!!"
 
-#: include/include_my_settings.php:57 login-exec.php:33
+#: include/include_my_settings.php:46 register-exec.php:67 login-exec.php:33
 msgid "Password missing"
 msgstr "Lösenordet kan inte vata tomt"
 
-#: include/include_my_settings.php:62
+#: include/include_my_settings.php:51 register-exec.php:71
 msgid "Confirm password missing"
 msgstr "Verifiera lösenord kan inte vara tomt"
 
-#: include/include_my_settings.php:67
+#: include/include_my_settings.php:56 register-exec.php:75
 msgid "Minimum of 5 chars in password."
 msgstr "Lösenordet måste ha minst fem tecken"
 
-#: include/include_my_settings.php:72
+#: include/include_my_settings.php:61
 msgid "The password is invalid "
 msgstr "Lösenordet är ogiltigt"
 
-#: include/include_my_settings.php:87
+#: include/include_my_settings.php:76
 msgid "Settings updated!"
 msgstr "Uppdaterade inställningarna"
 
@@ -235,10 +298,36 @@ msgstr "Logga ut"
 msgid " - Category - "
 msgstr " - Kategori - "
 
-#: register-success.php:10 login.php:43 login-failed.php:29 logout.php:36
-#: about.php:30 register.php:12 register.php:31 register.php:57
+#: register-success.php:10 register-success.php:22 login.php:43
+#: login-failed.php:29 logout.php:36 about.php:31 register.php:12
+#: register.php:31 register.php:56
 msgid "Register"
 msgstr "Registrera"
+
+#: register-success.php:21 register-success.php:33 register-success.php:38
+#: login.php:24 login.php:42 login.php:68 login-failed.php:10
+#: login-failed.php:28 login-failed.php:40 logout.php:35 logout.php:49
+#: about.php:30 register.php:30
+msgid "Login"
+msgstr "Logga in"
+
+#: register-success.php:23 login.php:44 login-failed.php:30 logout.php:37
+#: about.php:11 about.php:32 register.php:32
+msgid "About"
+msgstr "Om"
+
+#: register-success.php:28
+msgid "Registration success"
+msgstr "Registreringen lyckades"
+
+#: register-success.php:29
+msgid "Please login"
+msgstr "Logga in"
+
+#: register-success.php:35 login.php:65 login-failed.php:38 logout.php:46
+#: register.php:54 my.php:49
+msgid "Password"
+msgstr "Lösenord"
 
 #: proj_edit.php:29 proj_list.php:12
 msgid "Your Projects"
@@ -248,24 +337,13 @@ msgstr "Dina projekt"
 msgid "Edit Project"
 msgstr "Redigera projekt"
 
-#: proj_edit.php:46 proj_list.php:45
+#: proj_edit.php:46 proj_list.php:34
 msgid "Project name"
 msgstr "Projektnamn"
 
-#: proj_edit.php:50
+#: proj_edit.php:50 component_edit.php:285
 msgid "Delete"
 msgstr "Ta bort"
-
-#: login.php:24 login.php:42 login.php:68 login-failed.php:10
-#: login-failed.php:28 login-failed.php:40 logout.php:35 logout.php:49
-#: about.php:29 register.php:30
-msgid "Login"
-msgstr "Logga in"
-
-#: login.php:44 login-failed.php:30 logout.php:37 about.php:11 about.php:31
-#: register.php:32
-msgid "About"
-msgstr "Om"
 
 #: login.php:62 login-failed.php:36 logout.php:44 register.php:53
 msgid "Username"
@@ -275,17 +353,49 @@ msgstr "Användarnamn"
 msgid "Enter your username and password"
 msgstr "Mata in ditt användarnamn och lösenord"
 
-#: login.php:65 login-failed.php:38 logout.php:46 register.php:55 my.php:64
-msgid "Password"
-msgstr "Lösenord"
-
 #: login-failed.php:34
 msgid "Login failed, please try again."
 msgstr "Inloggningen misslyckades, försök igen"
 
-#: component_edit.php:90
+#: component_edit.php:95
 msgid "Edit component"
 msgstr "Redigera komponent"
+
+#: component_edit.php:235
+msgid "Add to project"
+msgstr "Lägg till projekt"
+
+#: component_edit.php:249
+msgid "Project"
+msgstr "Projekt"
+
+#: component_edit.php:283
+msgid "Update"
+msgstr "Uppdatera"
+
+#: component_edit.php:284
+msgid "New based on this"
+msgstr "Ny baserad på denna"
+
+#: test5.php:22
+msgid "There are "
+msgstr "Det finns "
+
+#: register-exec.php:59
+msgid "Username missing"
+msgstr "Användarnamn fattas"
+
+#: register-exec.php:63
+msgid "Minimum of 2 chars in username."
+msgstr "Användarnamn måste innehålla minst två tecken"
+
+#: register-exec.php:79
+msgid "Passwords do not match"
+msgstr "Lösenorden är inte lika"
+
+#: register-exec.php:89
+msgid "Username already in use"
+msgstr "Användarnamnet finns redan"
 
 #: maintenance.php:12
 msgid "Maintenance"
@@ -330,27 +440,23 @@ msgstr "finns redan"
 msgid " - File Uploaded"
 msgstr " - Filen uppladdad"
 
-#: component.php:96
-msgid "View component"
-msgstr "Visa komponent"
-
-#: component.php:147
+#: component.php:137
 msgid "No Image"
 msgstr "Ingen bild"
 
-#: component.php:214
+#: component.php:204
 msgid "Order quantity"
 msgstr "Beställt antal"
 
-#: component.php:304
+#: component.php:294
 msgid " Edit Component"
 msgstr "Redigera komponent"
 
-#: component.php:305
+#: component.php:295
 msgid " New based on this"
 msgstr " Ny baserad på denna"
 
-#: component.php:306
+#: component.php:296
 msgid " Delete component"
 msgstr " Ta bort komponent"
 
@@ -362,15 +468,15 @@ msgstr "Logga ut"
 msgid "You have successfully signed out of your account."
 msgstr "Du har loggats ut från ecdb"
 
-#: add_based.php:76
+#: add_based.php:66
 msgid "Add new component based on "
 msgstr "Lägg till komponent baserad på "
 
-#: about.php:35
+#: about.php:36
 msgid "What is ecDBpersonal?"
 msgstr "Vad är ecDBpersonal"
 
-#: about.php:36
+#: about.php:37
 msgid ""
 "ecDB (Personal) is a program where you, as an electronics hobbyist can add "
 "your own components to your personal database to keep track of what "
@@ -379,10 +485,6 @@ msgstr ""
 "ecDB (Personal) är ett program där du, som elektronikhobbyist, kan lägga "
 "till dina egna komponenter i en databas för att hålla reda på vilka "
 "komponenter du äger, var dom finns och hur många det är."
-
-#: about.php:38
-msgid "Who & Why?"
-msgstr "Vem och varför"
 
 #: about.php:39
 msgid "ecDB was created by "
@@ -428,7 +530,7 @@ msgstr ""
 "Det är tillåtet att sätta upp en egen privat databas för eget bruk eller "
 "inom en organisation."
 
-#: proj_list.php:40
+#: proj_list.php:29
 msgid ""
 "To create a BOM-list (Bill Of Material) you have to first create a project. "
 "You will then be able to add your components to your project and automaticly "
@@ -437,27 +539,39 @@ msgstr ""
 "För att skapa en inköpslista måste du skapa ett projekt.Du kan då lägga till "
 "komponenter till ditt projekt och automatisktskapa en inköpslista"
 
-#: proj_list.php:48
+#: proj_list.php:37
 msgid " Add project"
 msgstr "Lägg till projekt"
 
-#: proj_list.php:65
+#: proj_list.php:54
 msgid "Number of components"
 msgstr "Antal komponenter"
 
-#: proj_list.php:66
+#: proj_list.php:55
 msgid "Total cost"
 msgstr "Kostnad"
 
-#: proj_show.php:18
+#: proj_show.php:16
 msgid "Show project"
 msgstr "Visa projekt"
+
+#: proj_show.php:27
+msgid "Viewing project"
+msgstr "Visa projekt"
+
+#: proj_show.php:152
+msgid "Quantity in stock"
+msgstr "Antal i lager"
+
+#: proj_show.php:168
+msgid "Quantity in project"
+msgstr "Antal i projekt"
 
 #: login-exec.php:29
 msgid "Login ID missing"
 msgstr "Inloggnings-ID fattas"
 
-#: index.php:22
+#: index.php:12
 msgid "Home"
 msgstr "Hem"
 
@@ -465,25 +579,25 @@ msgstr "Hem"
 msgid "Shopping List"
 msgstr "Inköpslistor"
 
-#: shoplist.php:133
+#: shoplist.php:123
 msgid "Quantity to order"
 msgstr "Antal att beställa"
 
-#: error.php:16
+#: error.php:13
+msgid "Error"
+msgstr "Fel"
+
+#: error.php:27
 msgid "You don't have permission to view this component."
 msgstr "Du har inte rättighet att visa denna komponent"
 
-#: error.php:19
+#: error.php:30
 msgid "You don't have permission to edit this component."
 msgstr "Du har inte rättighet att redigera denna komponent"
 
-#: error.php:22
+#: error.php:33
 msgid "Oh crap! Something broke..."
 msgstr "Örk! Något sket sig.."
-
-#: error.php:32
-msgid "Error"
-msgstr "Fel"
 
 #: register.php:48
 msgid "Fill in this form to create your a user for the database."
@@ -501,11 +615,7 @@ msgstr "Förnamn"
 msgid "Last name"
 msgstr "Efternamn"
 
-#: register.php:54 my.php:58
-msgid "E-mail"
-msgstr "E-post"
-
-#: register.php:56
+#: register.php:55
 msgid "Repeat password"
 msgstr "Verifiera lösenord"
 
@@ -513,34 +623,46 @@ msgstr "Verifiera lösenord"
 msgid "Profile"
 msgstr "Profil"
 
-#: my.php:42
+#: my.php:32
 msgid "Settings"
 msgstr "Inställningar"
 
-#: my.php:49
+#: my.php:39
 msgid "First Name"
 msgstr "Förnamn"
 
-#: my.php:53
+#: my.php:43
 msgid "Last Name"
 msgstr "Efternamn"
 
-#: my.php:66
+#: my.php:51
 msgid "New password"
 msgstr "Nytt lösenord"
 
-#: my.php:69
+#: my.php:54
 msgid "Currency"
 msgstr "Valuta"
 
-#: my.php:87
+#: my.php:72
 msgid "Language"
 msgstr "Språk"
 
-#: my.php:91
+#: my.php:76
 msgid "Swedish"
 msgstr "Svenska"
 
-#: my.php:95
+#: my.php:80
 msgid "English"
 msgstr "Engelska"
+
+#: my.php:85
+msgid "French"
+msgstr "Franska"
+
+#: my.php:90
+msgid "Italian"
+msgstr "Italienska"
+
+#: my.php:95
+msgid "Spanish"
+msgstr "Spanska"
