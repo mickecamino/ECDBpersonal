@@ -11,7 +11,7 @@
     $owner = $_SESSION['SESS_MEMBER_ID'];
 // Get the number of components from the data table
     $DataCount = mysqli_num_rows(mysqli_query($connection,"SELECT `id` FROM `data` WHERE `owner` = " . $owner . ""));
-    echo '<h1>' . _("You have ") . $DataCount;
+    echo '<h1>' . _("You have") . " " . $DataCount;
     if($DataCount == 1 ) {
         echo " " .  _("component, and");
     } else {
