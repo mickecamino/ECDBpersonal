@@ -1,7 +1,7 @@
 <?php
 // File: my.php
 // Function: Personal setting for a user
-// Revision date: 2026-08-31
+// Revision date: 2026-09-03
 // Revised by: Mikael Karlsson
 // This file is distributed under the license: 
 // Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
@@ -93,6 +93,18 @@
                 if(!isset($_POST['submit']) && $executesql['language'] == 'en_US.utf8') { echo 'selected';}
                 if(isset($_POST['submit']) && $_POST['language'] == 'en_US.utf8') { echo 'selected';}
                 echo '>' . _("English") . '</option>';
+                echo '<option value="fr_FR.utf8"';
+                if(!isset($_POST['submit']) && $executesql['language'] == 'fr_FR.utf8') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['language'] == 'fr_FR.utf8') { echo 'selected';}
+                echo '>' . _("French") . '</option>';
+                echo '<option value="it_IT.utf8"';
+                if(!isset($_POST['submit']) && $executesql['language'] == 'it_IT.utf8') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['language'] == 'it_IT.utf8') { echo 'selected';}
+                echo '>' . _("Italian") . '</option>';
+                echo '<option value="es_ES.utf8"';
+                if(!isset($_POST['submit']) && $executesql['language'] == 'es_ES.utf8') { echo 'selected';}
+                if(isset($_POST['submit']) && $_POST['language'] == 'es_ES.utf8') { echo 'selected';}
+                echo '>' . _("Spanish") . '</option>';
                 echo '</select></td>'; // end fourth column
                 echo '</tr></tbody></table>';
             echo '<div class="buttons"><div class="input">';
