@@ -1,4 +1,11 @@
 <?php
+// File: include/include.php
+// Function: Add functions: Index, Category, Seacrh and Add
+// Revision date: 2026-09-02
+// Revised by: Mikael Karlsson
+// This file is distributed under the license:
+// Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+//
 class ShowComponents {
     public function Index() {
 
