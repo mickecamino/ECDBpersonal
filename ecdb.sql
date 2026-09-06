@@ -288,7 +288,6 @@ CREATE TABLE IF NOT EXISTS `members` (
   `firstname` varchar(32) NOT NULL,
   `lastname` varchar(32) NOT NULL,
   `login` varchar(32) NOT NULL,
-  `mail` varchar(32) NOT NULL,
   `passwd` varchar(32) NOT NULL,
   `currency` varchar(3) NOT NULL DEFAULT 'USD',
   `language`, varchar(10) NOT NULL DEFAULT 'sv_SE.utf8'
@@ -298,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `mail`, `passwd`, `currency`, `language`) VALUES(4, 'Demo', 'Demo', 'demo', 'mail@mailen.com', 'fe01ce2a7fbac8fafaed7c982a04e229', 'USD', 'en_US.utf8');
+INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `login`, `passwd`, `currency`, `language`) VALUES(4, 'Demo', 'Demo', 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'USD', 'en_US.utf8');
 
 -- --------------------------------------------------------
 
