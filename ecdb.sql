@@ -266,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `location` varchar(32) NOT NULL,
   `scrap` varchar(3) NOT NULL DEFAULT 'No',
   `datasheet` varchar(256) NOT NULL,
-  `comment` text NOT NULL,
+  `comment` tinytext NOT NULL,
   `category` varchar(11) NOT NULL,
   `cimage` varchar(256) NOT NULL,
   `appnote` varchar(256) NOT NULL,
