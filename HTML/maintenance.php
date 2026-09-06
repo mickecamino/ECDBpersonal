@@ -1,9 +1,9 @@
 ﻿<?php
-// File: add_based.php
+// File: maintenance.php
 // Function: Allow Image files and PDF files to be uploaded
 // Author: Pete Willard
 // Date: August 2017
-// Revision date: 2026-08-30
+// Revision date: 2026-09-03
 // Revised by: Mikael Karlsson
 // This file is distributed under the license:
 // Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.

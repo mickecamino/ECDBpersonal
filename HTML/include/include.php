@@ -657,9 +657,9 @@ class ShowComponents {
                 echo _("You have to specify a quantity for this component to add to the project!");
                 echo '</div>';
             }
-            elseif (strlen($comment) >= 2500) {
+            elseif (strlen($comment) >= 255) {
                 echo '<div class="message red">';
-                echo _("Max 2500 characters in the comment!");
+                echo _("Max 255 characters in the comment!");
                 echo '</div>';
             }
             elseif (!empty($_POST['quantity']) && !is_numeric($quantity)) {
