@@ -294,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `login` varchar(32) NOT NULL,
   `passwd` varchar(32) NOT NULL,
   `currency` varchar(3) NOT NULL DEFAULT 'USD',
-  `language`, varchar(10) NOT NULL DEFAULT 'sv_SE.utf8'
+  `language` varchar(10) NOT NULL DEFAULT 'sv_SE.utf8'
 ) ENGINE=MyISAM AUTO_INCREMENT=1801 DEFAULT CHARSET=utf8;
 
 --
