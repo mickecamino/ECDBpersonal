@@ -16,8 +16,8 @@ echo '<div id="menu"><ul><li><a href="." class="';
     echo '<li><a href="add.php" class="';
     if ($_SERVER["REQUEST_URI"] == '/add.php'){echo 'selected';}
     echo '"><span class="fa fa-plus-square fa-lg"></span> ' . _("Add component") . '</a></li>';
+    
     echo '<li><a href="shoplist.php" class="<';
-
     if ($_SERVER["REQUEST_URI"] == '/shoplist.php'){echo 'selected';}
     echo '"><span class="fa fa-shopping-basket fa-lg"></span> ' . _("Shopping list") . '</a></li>';
 
@@ -31,5 +31,10 @@ echo '<div id="menu"><ul><li><a href="." class="';
  
     echo '<li><a href="maintenance.php" class="';
     if ($_SERVER["REQUEST_URI"] == '/maintenance.php'){echo 'selected';}
-    echo '"><span class="fa fa-cog fa-lg"></span> ' . _("Reference items");
+    echo '"><span class="fa fa-cog fa-lg"></span> ' . _("Reference items") . '</a></li>';
+
+    echo '<li><a href="importexport.php" class="';
+    if ($_SERVER["REQUEST_URI"] == '/importexport.php'){echo 'selected';}
+    echo '"><span class="fa fa-cog fa-lg"></span> ' . _("Import/Export");
+
     echo '</a></li></ul></div>';
