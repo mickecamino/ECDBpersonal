@@ -42,8 +42,8 @@
     $sql_exec = mysqli_query($connection,$GetDataComponentsAll);
 
     if(isset($_POST['delete'])) {
-        $sqlDeleteComopnent = "DELETE FROM data WHERE id = ".$id." ";
-        $sql_exec_component_delete = mysqli_query($connection,$sqlDeleteComopnent);
+        $sqlDeleteComponent = "DELETE FROM data WHERE id = ".$id." ";
+        $sql_exec_component_delete = mysqli_query($connection,$sqlDeleteComponent);
 
         $sqlDeleteProject = "DELETE FROM projects_data WHERE projects_data_component_id = '$id'";
         $sql_exec_project_delete = mysqli_query($connection,$sqlDeleteProject);

@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `manufacturer` varchar(64) NOT NULL,
   `package` varchar(64) NOT NULL,
   `pins` varchar(11) NOT NULL,
-  `quantity` varchar(11) NOT NULL,
+  `quantity` varchar(11) NOT NULL DEFAULT '0',
   `order_quantity` varchar(11) NOT NULL DEFAULT '0',
   `location` varchar(32) NOT NULL,
   `scrap` varchar(3) NOT NULL DEFAULT 'No',

@@ -43,8 +43,8 @@
     }
 
     if(isset($_POST['delete'])) {
-        $sqlDeleteComopnent = "DELETE FROM data WHERE id = ".$id." ";
-        $sql_exec_component_delete = mysqli_query($connection,$sqlDeleteComopnent);
+        $sqlDeleteComponent = "DELETE FROM data WHERE id = ".$id." ";
+        $sql_exec_component_delete = mysqli_query($connection,$sqlDeleteComponent);
 
         $sqlDeleteProject = "DELETE FROM projects_data WHERE projects_data_component_id = '$id'";
         $sql_exec_project_delete = mysqli_query($connection,$sqlDeleteProject);
@@ -109,8 +109,6 @@ include "include/head.php";
                 <?php include "include/menu.php"; ?>
             <!-- END -->
             <!-- Main content -->
-<?php
-?>
             <div id="content">
                 <h2>
                 <a href="category.php?cat=
@@ -291,7 +289,7 @@ include "include/head.php";
                     <div class="buttons">
                         <div class="input">
                             <?php
-                            echo '<button class="button" name="edit" type="submit"><span class=" fa fa-pencil fa-lg"></span> ' . _(" Edit Component") . '</button> ';
+                            echo '<button class="button" name="edit" type="submit"><span class=" fa fa-pencil fa-lg"></span>' . _(" Edit Component") . '</button> ';
                             echo '<button class="button" name="based" type="submit"><span class="fa fa-plus-square fa-lg"></span> ' . _(" New based on this") . '</button> ';
                             echo '<button class="button red" name="delete" type="submit"><span class="fa fa-trash fa-lg"></span> ' . _(" Delete component") . '</button> ';
                             ?>
