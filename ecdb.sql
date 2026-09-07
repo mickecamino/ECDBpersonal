@@ -171,7 +171,7 @@ INSERT INTO `category_sub` (`id`, `name`) VALUES(899, 'Misc');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(901, 'Octal');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(902, 'Loctal B8G');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(903, 'Heptal B7G');
-INSERT INTO `category_sub` (`id`, `name`) VALUES(903, 'Noval B9A');
+INSERT INTO `category_sub` (`id`, `name`) VALUES(904, 'Noval B9A');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(903, 'Nixie');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(999, 'Misc');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(1001, 'Keypad');
@@ -374,12 +374,6 @@ ALTER TABLE `data`
 --
 ALTER TABLE `members`
  ADD PRIMARY KEY (`member_id`);
-
---
--- Indexes for table `members_stats`
---
-ALTER TABLE `members_stats`
- ADD PRIMARY KEY (`members_stats_id`);
 
 --
 -- Indexes for table `projects`
