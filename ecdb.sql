@@ -172,7 +172,7 @@ INSERT INTO `category_sub` (`id`, `name`) VALUES(901, 'Octal');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(902, 'Loctal B8G');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(903, 'Heptal B7G');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(904, 'Noval B9A');
-INSERT INTO `category_sub` (`id`, `name`) VALUES(903, 'Nixie');
+INSERT INTO `category_sub` (`id`, `name`) VALUES(905, 'Nixie');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(999, 'Misc');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(1001, 'Keypad');
 INSERT INTO `category_sub` (`id`, `name`) VALUES(1002, 'Momentary');
