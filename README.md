@@ -1,4 +1,7 @@
-# ECDBpersonal
+# THIS REPOSITORY IS CLOSED. 
+# Please use https://github.com/mickecamino/ECDBpersonalV2
+
+## ECDBpersonal
 
 NOTE: This is a fork of ECDBpersonal from Pete Willard.  
 I forked it just because I found it useful. I will be making some major changes to it, but it is only for my own use. As such it is **** Not Supported ****
